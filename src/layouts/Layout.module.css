@@ -1,0 +1,9 @@
+body {
+  background-color: rgba(248, 203, 172, 97);
+}
+.main-container {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 1170px;
+    background-color: rgba(248, 203, 172, 97);
+}
