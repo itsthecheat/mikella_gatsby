@@ -5,6 +5,11 @@
  */
 
 module.exports = {
+  siteMetadata: {
+  title: `Mikella Millen`,
+  siteUrl: `http://www.mikellamillen.com`,
+  description: `Art Therapist with private practice in Manhattan`,
+},
   plugins: [
    {
      resolve: `gatsby-plugin-layout`,
@@ -16,17 +21,14 @@ module.exports = {
    `gatsby-transformer-sharp`,
    `gatsby-plugin-sharp`,
    `gatsby-transformer-remark`,
+   `gatsby-plugin-smoothscroll`,
+   `gatsby-transformer-yaml`,
    {
   resolve: `gatsby-source-filesystem`,
   options: {
-    name: `src`,
-    path: `${__dirname}/src/`,
+    name: `content`,
+    path: `${__dirname}/src/content`,
   },
 },
  ],
-  siteMetadata: {
-  title: `Mikella Millen`,
-  siteUrl: `http://www.mikellamillen.com`,
-  description: `Art Therapist with private practice in Manhattan`,
-},
 }

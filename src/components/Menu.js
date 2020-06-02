@@ -1,10 +1,8 @@
 import React from "react"
 
-import { Link } from "gatsby"
-import Navbar from "react-bootstrap/Navbar"
-import Nav from "react-bootstrap/Nav"
-import NavDropdown from "react-bootstrap/NavDropdown"
-
+// import { Link } from "gatsby"
+// import { StaticQuery, graphql } from "gatsby"
+import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 
 export default () =>
 <Navbar bg="light" expand="lg">

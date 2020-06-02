@@ -1,6 +1,5 @@
 import React from "react"
 
-import { Link } from "gatsby"
 import styles from "./section.module.css"
 import {Row, Col, Container } from "react-bootstrap/"
 
@@ -13,7 +12,7 @@ export default () =>
 
       <Row>
         <Col lg={12}>
-          <h2>Header</h2>
+          <h2>Something about art therapy</h2>
         </Col>
       </Row>
 
