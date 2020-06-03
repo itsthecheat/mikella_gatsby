@@ -1,5 +1,6 @@
 ---
 slug: "/art-therapy"
+title: "Art Therapy"
 links:
   - art-therapy: "/#art-therapy/"
   - specialties: "/#specialties/"
