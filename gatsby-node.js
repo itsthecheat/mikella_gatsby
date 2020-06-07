@@ -1,3 +1,12 @@
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage } = actions
+
+  if (page.path.match('/')) {
+    page.context.layout = "special"
+    createPage(page)
+  }
+}
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 

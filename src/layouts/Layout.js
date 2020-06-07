@@ -1,12 +1,13 @@
 import React from "react"
 
-import containerStyles from "./Layout.module.css"
+import styles from "./Layout.module.css"
 import Container from 'react-bootstrap/Container'
-
+import Menu from "../components/Menu"
 
 export default ({ children }) => (
   <Container fluid style={{padding: 0}}>
-      <div className={containerStyles.container}>
+      <Menu />
+      <div className={styles.mainContainer}>
         {children}
       </div>
   </Container>
