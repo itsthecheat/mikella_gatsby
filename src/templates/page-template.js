@@ -1,35 +1,30 @@
-import React from "react"
+import React from 'react'
+import { graphql } from 'gatsby'
+import SliceZone from '../components/SliceZone'
+import Layout from '../components/Layout'
+import Img from 'gatsby-image'
 
-import Container from "react-bootstrap/Container"
-// import Section from "../components/Section"
-import { graphql } from "gatsby"
-
-export default ({data}) => {
-const content = data.markdownRemark
+const Page = ({ data }) => {
+  const prismicContent = data.prismic.allPages.edges[0]
+  if (!prismicContent) return null
+  const document = prismicContent.node
 
   return (
 
-    <div>
-
-        <Container>
-        <div dangerouslySetInnerHTML={{__html: content.html }}/>
-        </Container>
-    </div>
+    <Layout>
+      <SliceZone sliceZone={document.body} />
+    </Layout>
   )
-
 }
 
-export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      headings {
-        value
-      }
-      html
-      htmlAst
-      frontmatter {
-        slug
+export const query = graphql`
+  query PageQuery($uid: String){
+    prismic {
+      allPages(uid: $uid) {
+
       }
     }
   }
 `
+
+export default Page

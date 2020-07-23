@@ -1,6 +1,6 @@
 import React from "react"
 
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 // import { StaticQuery, graphql } from "gatsby"
 import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 
@@ -10,7 +10,7 @@ export default () =>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
     <Nav>
-      <Nav.Link href="#home">Art Therapy</Nav.Link>
+      <Nav.Link as={Link} to="/art-therapy/">Art Therapy</Nav.Link>
       <NavDropdown title="Services" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Psychotherapy</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Retreats</NavDropdown.Item>

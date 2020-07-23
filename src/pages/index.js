@@ -1,11 +1,11 @@
 import React from "react"
 
-import Layout from "../layouts/Layout"
-import Splash from "../layouts/Splash"
+import Layout from "../components/Layout"
 
-export default ({ children, pageContext }) => {
-  if (pageContext.layout === "special") {
-    return <Splash>{children}</Splash>
-  }
-  return <Layout>{children}</Layout>
-}
+
+export default () =>(
+
+<Layout>
+<p> SPLASH </p>
+</Layout>
+)
