@@ -31,7 +31,7 @@ module.exports = {
 {
   resolve: `@prismicio/gatsby-source-prismic-graphql`,
   options: {
-    repositoryName: `mikella`,
+    repositoryName: `mikellamillen`,
         pages: [{
         type: 'Page',
         match: '/:uid',

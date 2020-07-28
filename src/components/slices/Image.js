@@ -1,23 +1,19 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
-import { linkResolver } from 'gatsby-source-prismic-graphql'
+import Img from 'gatsby-image'
 
 const Image = ({ slice }) => (
-<div>
-  <div>
-    <RichText render={slice.primary.header} />
-    <RichText render={slice.primary.text} />
 
-  </div>
-  <div>
+<div>
+  {/* <div>
     <img
-      src={slice.primary.section_image.url}
-      alt={slice.primary.section_image.alt}
+      src={slice.primary.image.url}
+      alt={slice.primary.image.alt}
     />
+  </div> */}
+  <div>
+    <Img fluid={slice.primary.imageSharp.childImageSharp.fluid} />
   </div>
 </div>
-
 
 )
 
