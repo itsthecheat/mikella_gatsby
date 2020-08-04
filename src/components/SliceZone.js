@@ -5,6 +5,7 @@ import SectionHeader from './slices/SectionHeader'
 import Image from './slices/Image'
 
 const SliceZone = ({ sliceZone }) => {
+  console.log("=======SLICEZONE=======");
   console.log(sliceZone);
   const sliceComponents = {
     full_width_image: FullWidthImage,
@@ -14,14 +15,16 @@ const SliceZone = ({ sliceZone }) => {
   }
 
   const sliceZoneContent = sliceZone.map((slice, index) => {
-    console.log(slice)
+    console.log("=======SLICE=======")
+    console.log(slice);
     const SliceComponent = sliceComponents[slice.type]
       if (SliceComponent) {
         return <SliceComponent slice={slice} key={`slice-${index}`} />
       }
       return null
   })
-  console.log(sliceZoneContent)
+  console.log("=======SLICEZONE CONTENT=======")
+  console.log(sliceZoneContent);
 return (
   <div>
     {sliceZoneContent}

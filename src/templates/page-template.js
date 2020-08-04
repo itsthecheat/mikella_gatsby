@@ -47,12 +47,12 @@ export const query = graphql`
               primary {
                 image
                 imageSharp {
-                    childImageSharp {
-                      fluid (maxWidth: 500, maxHeight: 500){
-                        ...GatsbyImageSharpFluid
+                  childImageSharp {
+                    fluid (quality: 100){
+                      ...GatsbyImageSharpFluid
                       }
                     }
-                  }
+                }
               }
             }
           }

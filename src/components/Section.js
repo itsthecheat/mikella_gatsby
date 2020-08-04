@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./section.module.css"
+import styles from "./Section.module.css"
 import {Row, Col, Container } from "react-bootstrap"
 
 
