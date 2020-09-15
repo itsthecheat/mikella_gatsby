@@ -1,0 +1,48 @@
+{
+  "Main" : {
+    "title_splash" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "title splash",
+        "placeholder" : "Title for Splash Page"
+      }
+    },
+    "cover_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "cover image"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "link" : [ ]
+        },
+        "choices" : {
+          "link" : {
+            "type" : "Slice",
+            "fieldset" : "link",
+            "description" : "link",
+            "icon" : "link",
+            "display" : "list",
+            "non-repeat" : {
+              "link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "link",
+                  "placeholder" : "link"
+                }
+              }
+            },
+            "repeat" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,66 +1,105 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import SliceZone from '../components/SliceZone'
 import Layout from '../components/Layout'
-
+import SliceZone from '../components/SliceZone'
 
 const Page = ({ data }) => {
-  const prismicContent = data.prismic.allPages.edges[0]
+  const prismicContent = data.allPrismicPage.edges[0]
     if (!prismicContent) return null
-  const document = prismicContent.node
+  const document = prismicContent.node.data
     return (
       <Layout>
-        <SliceZone sliceZone={document.body} />
+        <div dangerouslySetInnerHTML={{__html: document.page_title.html }}></div>
+          <SliceZone allSlices={ document.body }/>
       </Layout>
     )
 }
 
 export const query = graphql`
-  query PageQuery($uid: String){
-    prismic {
-      allPages(uid: $uid) {
-        edges {
+  query pageQuery  {
+    allPrismicPage  {
+      edges {
         node {
-          page_title
-          body {
-            ... on PRISMIC_PageBodyFull_width_image {
-              type
-              primary {
-                full_width_image
-              }
+          id
+          uid
+          data {
+            page_title {
+              html
             }
-            ... on PRISMIC_PageBodyTitle {
-              type
-              primary {
-                title
-              }
-            }
-            ... on PRISMIC_PageBodyText {
-              type
-              primary {
-                text
-                columns
-              }
-            }
-            ... on PRISMIC_PageBodyImage {
-              type
-              primary {
-                image
-                imageSharp {
-                  childImageSharp {
-                    fluid (quality: 100){
-                      ...GatsbyImageSharpFluid
-                      }
+            body {
+              ... on PrismicPageBodyFullWidthImage {
+                id
+                slice_type
+                primary {
+                  full_width_image {
+                    alt
+                    url
+                    fluid {
+                      base64
                     }
+                  }
+                }
+              }
+              ... on PrismicPageBodyTitle {
+                id
+                slice_type
+                primary {
+                  title {
+                    html
+                  }
+                }
+              }
+              ... on PrismicPageBodyText {
+                id
+                slice_type
+                primary {
+                  columns
+                  text {
+                    html
+                  }
+                }
+              }
+              ... on PrismicPageBodyImage {
+                id
+                slice_type
+                primary {
+                  image {
+                    alt
+                    url
+                    fluid {
+                      base64
+                    }
+                  }
+                }
+              }
+              ... on PrismicPageBodySection {
+                id
+                slice_type
+                primary {
+                  title {
+                    html
+                  }
+                }
+                items {
+                  content {
+                    html
+                  }
+                  image {
+                    alt
+                    url
+                    fluid (maxWidth: 500){
+                    ...GatsbyPrismicImageFluid
+                    }
+                  }
                 }
               }
             }
           }
         }
       }
-      }
     }
   }
 `
+
 
 export default Page

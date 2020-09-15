@@ -29,20 +29,16 @@ module.exports = {
   },
 },
 {
-  resolve: `@prismicio/gatsby-source-prismic-graphql`,
+  resolve: `gatsby-source-prismic`,
   options: {
     repositoryName: `mikellamillen`,
-        pages: [{
-        type: 'Page',
-        match: '/:uid',
-        path: '/preview',
-        component: require.resolve('./src/templates/page-template.js'),
-
-    }],
-    previews: true,
-    path: '/preview',
-    defaultLang: 'en-us',
+    linkResolver: () => (page) => `/${page.uid}`,
+    schemas: {
+        page: require('./src/schemas/page.json'),
+        splash: require('./src/schemas/splash.json'),
+      },
     accessToken: `${process.env.API_KEY}`,
+    shouldDownloadImage: ({ node, key, value }) => { return true },
   },
 },
  ],

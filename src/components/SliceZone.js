@@ -1,35 +1,30 @@
-import React from 'react'
-import FullWidthImage from './slices/FullWidthImage'
-import Text from './slices/Text'
-import SectionHeader from './slices/SectionHeader'
-import Image from './slices/Image'
+import React, {Component} from 'react'
+import FullWidthImage from '../slices/FullWidthImage'
+import Text from '../slices/Text'
+import SectionHeader from '../slices/SectionHeader'
+import Image from '../slices/Image'
+import Section from '../slices/Section'
 
-const SliceZone = ({ sliceZone }) => {
-  console.log("=======SLICEZONE=======");
-  console.log(sliceZone);
-  const sliceComponents = {
-    full_width_image: FullWidthImage,
-    image: Image,
-    text: Text,
-    title: SectionHeader,
-  }
-
-  const sliceZoneContent = sliceZone.map((slice, index) => {
-    console.log("=======SLICE=======")
-    console.log(slice);
-    const SliceComponent = sliceComponents[slice.type]
-      if (SliceComponent) {
-        return <SliceComponent slice={slice} key={`slice-${index}`} />
+export default class SliceZone extends Component {
+  render() {
+    const { allSlices } = this.props
+    const slice = allSlices.map((s) => {
+      switch (s.slice_type) {
+        case 'text':
+          return <Text key={s.id} data={s} />
+        case 'title':
+          return <SectionHeader key={s.id} data={s} />
+        case 'image':
+          return <Image key={s.id} data={s} />
+        case 'section':
+          return <Section key={s.id} data={s} />
+        case 'full_width_image':
+          return <FullWidthImage key={s.id} data={s} />
+        default:
+          return null
       }
-      return null
-  })
-  console.log("=======SLICEZONE CONTENT=======")
-  console.log(sliceZoneContent);
-return (
-  <div>
-    {sliceZoneContent}
-  </div>
-)
+    })
+    //returns array of objects of each slice
+    return <div>{slice}</div>
+  }
 }
-
-export default SliceZone
