@@ -2,16 +2,24 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SliceZone from '../components/SliceZone'
+import styles from './page-template.module.css'
+import Container from 'react-bootstrap/Container'
+import 'typeface-dm-serif-display'
 
 const Page = ({ data }) => {
   const prismicContent = data.allPrismicPage.edges[0]
     if (!prismicContent) return null
   const document = prismicContent.node.data
     return (
+
       <Layout>
-        <div dangerouslySetInnerHTML={{__html: document.page_title.html }}></div>
-          <SliceZone allSlices={ document.body }/>
+        <div className={styles.pageTitle} dangerouslySetInnerHTML={{__html: document.page_title.html }}></div>
+        <Container>
+              <SliceZone allSlices={ document.body }/>
+        </Container>
+
       </Layout>
+
     )
 }
 
@@ -32,6 +40,13 @@ export const query = graphql`
                 slice_type
                 primary {
                   full_width_image {
+                    localFile {
+                      childImageSharp {
+                        fixed(width: 1200){
+                          ...GatsbyImageSharpFixed
+                        }
+                      }
+                    }
                     alt
                     url
                     fluid {
@@ -40,7 +55,7 @@ export const query = graphql`
                   }
                 }
               }
-              ... on PrismicPageBodyTitle {
+              ... on PrismicPageBodyText {
                 id
                 slice_type
                 primary {
@@ -48,11 +63,7 @@ export const query = graphql`
                     html
                   }
                 }
-              }
-              ... on PrismicPageBodyText {
-                id
-                slice_type
-                primary {
+                items {
                   columns
                   text {
                     html
@@ -64,6 +75,13 @@ export const query = graphql`
                 slice_type
                 primary {
                   image {
+                    localFile {
+                      childImageSharp {
+                        fluid (quality: 100 ){
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
                     alt
                     url
                     fluid {
@@ -87,10 +105,15 @@ export const query = graphql`
                   image {
                     alt
                     url
-                    fluid (maxWidth: 500){
-                    ...GatsbyPrismicImageFluid
+                    localFile {
+                      childImageSharp {
+                        fluid (quality: 100){
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
                     }
                   }
+                  image_position
                 }
               }
             }
@@ -100,6 +123,4 @@ export const query = graphql`
     }
   }
 `
-
-
 export default Page

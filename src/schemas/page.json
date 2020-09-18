@@ -45,10 +45,10 @@
             },
             "repeat" : { }
           },
-          "title" : {
+          "text" : {
             "type" : "Slice",
-            "fieldset" : "Title",
-            "description" : "Title of section",
+            "fieldset" : "Text Section",
+            "description" : "Text only section with title and content",
             "icon" : "text_fields",
             "display" : "list",
             "non-repeat" : {
@@ -61,15 +61,7 @@
                 }
               }
             },
-            "repeat" : { }
-          },
-          "text" : {
-            "type" : "Slice",
-            "fieldset" : "Text",
-            "description" : "Section content rich text",
-            "icon" : "text_fields",
-            "display" : "list",
-            "non-repeat" : {
+            "repeat" : {
               "columns" : {
                 "type" : "Select",
                 "config" : {
@@ -87,8 +79,7 @@
                   "placeholder" : "Section content"
                 }
               }
-            },
-            "repeat" : { }
+            }
           },
           "image" : {
             "type" : "Slice",
@@ -133,6 +124,14 @@
                   "label" : "image"
                 }
               },
+              "image_position" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Left", "Right" ],
+                  "label" : "Image Position",
+                  "placeholder" : "Image Position"
+                }
+              },
               "content" : {
                 "type" : "StructuredText",
                 "config" : {
@@ -141,6 +140,31 @@
                 }
               }
             }
+          },
+          "quote" : {
+            "type" : "Slice",
+            "fieldset" : "Quote",
+            "description" : "A short quote with author's portrait",
+            "icon" : "add_alert",
+            "non-repeat" : {
+              "quote" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "em",
+                  "label" : "Quote",
+                  "placeholder" : "Your quote"
+                }
+              },
+              "name_of_the_author" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Name of the author",
+                  "placeholder" : "John Doe"
+                }
+              }
+            },
+            "repeat" : { }
           }
         }
       }

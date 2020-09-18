@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import FullWidthImage from '../slices/FullWidthImage'
 import Text from '../slices/Text'
 import SectionHeader from '../slices/SectionHeader'
 import Image from '../slices/Image'
@@ -18,8 +17,6 @@ export default class SliceZone extends Component {
           return <Image key={s.id} data={s} />
         case 'section':
           return <Section key={s.id} data={s} />
-        case 'full_width_image':
-          return <FullWidthImage key={s.id} data={s} />
         default:
           return null
       }

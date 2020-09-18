@@ -3,27 +3,22 @@ import styles from "./Section.module.css"
 import {Row, Col, Container } from "react-bootstrap"
 import Img from 'gatsby-image'
 
-
-const Section =  ({ data }) => {
+const Section = ({ data }) => {
 const sectionContent = data.items
-const test = sectionContent.map( item => {
-  return (item.image.url ? console.log(item.image) : 'null')
-
-})
-
 
  return (
-   <Container fluid className={styles.content}>
-    <Row dangerouslySetInnerHTML={{__html: data.primary.title.html}} />
+   <Container>
+    <Row>
+    <Col className={styles.header} dangerouslySetInnerHTML={{__html: data.primary.title.html}} />
+    </Row>
      {sectionContent.map((section) =>
       <Row>
-       <Col>
-       <img className={styles.sectionImage} src={section.image.url} alt={section.image.alt}/>
-       <p dangerouslySetInnerHTML={{__html: section.content.html}}/>
+       <Col className={styles.content} sm={12} md={12} lg={12}>
+       <Img className={styles.sectionImage} fluid={section.image.localFile.childImageSharp.fluid} alt={section.image.alt}/>
+       <p className={styles.content} dangerouslySetInnerHTML={{__html: section.content.html}}/>
        </Col>
       </Row>
      )}
-
    </Container>
  )
 

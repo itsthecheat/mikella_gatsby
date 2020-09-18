@@ -4,5 +4,6 @@ body, html {
 .mainContainer {
   padding-left: 0;
   padding-right: 0;
-  max-width: 1170px;
+  max-width: 1000px;
+  margin: 0 auto;
 }

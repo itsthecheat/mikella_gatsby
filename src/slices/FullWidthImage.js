@@ -1,13 +1,13 @@
 import React from 'react'
+import Img from 'gatsby-image'
 
 const FullWidthImage = ({ data }) => (
   <div>
-    <img
-      src={data.primary.full_width_image.url}
+    <Img
+      fixed={data.primary.full_width_image.localFile.childImageSharp.fixed}
       alt={data.primary.full_width_image.alt}
     />
   </div>
-
 
 )
 

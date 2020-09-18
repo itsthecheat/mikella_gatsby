@@ -1,19 +1,19 @@
 import React from 'react'
-// import styles from "./Text.module.css"
-import {Col, Row} from 'react-bootstrap'
+import {Col, Row, Container} from 'react-bootstrap'
 
 const Text = ({ data }) => {
-  
-  const paragraph = data.primary.text.html;
+  const paragraph = data.items[0].text.html
+  const title = data.primary.title.html
 
     return (
-    <div >
-      <Row>
-      <Col lg={8} md={8} sm={12}>
-        <p dangerouslySetInnerHTML={{__html: paragraph}}></p>
-      </Col>
-      </Row>
-    </div>
+      <Container fluid>
+        <Row style={{justifyContent: 'center'}} dangerouslySetInnerHTML={{__html: title}} />
+        <Row>
+        <Col style={{marginBottom: '100px'}}>
+          <p dangerouslySetInnerHTML={{__html: paragraph}} />
+        </Col>
+        </Row>
+      </Container>
   )
 }
 

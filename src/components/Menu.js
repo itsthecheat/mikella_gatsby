@@ -1,12 +1,57 @@
 import React from "react"
-
-import { Link } from "gatsby"
-// import { StaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { Navbar, Nav, NavDropdown } from "react-bootstrap"
+import styles from './Menu.module.css'
+import 'typeface-dm-serif-display'
 
-export default () =>
-<Navbar bg="light" expand="lg">
-  <Navbar.Brand href="/">Mikella Millen LCAT, ATR-BC</Navbar.Brand>
+
+export default function Menu () {
+  const data = useStaticQuery(graphql`
+    { site {
+        siteMetadata {
+          title
+        }
+      }
+      allPrismicPage {
+        edges {
+          node {
+            id
+            uid
+            data {
+              body {
+                ... on PrismicPageBodyFullWidthImage {
+                  id
+                  slice_type
+                  primary {
+                    full_width_image {
+                      url (imgixParams: { fit: "crop", crop: "entropy" })
+                      alt
+                      fluid (imgixParams: { fit: "crop", crop: "edges" }) {
+                        aspectRatio
+                        base64
+                        sizes
+                        src
+                        srcSet
+                        srcSetWebp
+                        srcWebp
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const image = data.allPrismicPage.edges[0].node.data.body[0].primary.full_width_image
+
+  return (
+    <>
+    <Navbar bg="light" expand="lg">
+  <Navbar.Brand className={styles.brand} as= {Link} to="/">{data.site.siteMetadata.title}</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
     <Nav>
@@ -24,3 +69,10 @@ export default () =>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
+
+<div className ={styles.heroImage} style={{ backgroundImage: `url(${image.url})` }}></div>
+
+</>
+)
+
+}

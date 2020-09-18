@@ -9,7 +9,7 @@
 
 module.exports = {
   siteMetadata: {
-  title: `Mikella Millen`,
+  title: `Mikella Millen LCAT, ATR-BC`,
   siteUrl: `http://www.mikellamillen.com`,
   description: `Art Therapist with private practice in Manhattan`,
 },

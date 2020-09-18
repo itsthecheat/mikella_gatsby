@@ -1,5 +1,4 @@
 import React from "react"
-
 import styles from "./Layout.module.css"
 import Container from 'react-bootstrap/Container'
 import Menu from "../components/Menu"
