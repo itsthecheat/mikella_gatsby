@@ -50,11 +50,11 @@ export default function Menu() {
   const image = data.allPrismicPage.edges[0].node.data.body[0].primary.full_width_image
   return (
     <>
-    <Navbar bg="light" expand="lg">
+    <Navbar fixed="top" bg="light" expand="lg">
       <Navbar.Brand className={styles.brand} as= {Link} to="/">{data.site.siteMetadata.title}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav>
+          <Nav className={styles.navigation}>
             <Nav.Link onClick={() => scrollTo('#specializations')}>Specialties</Nav.Link>
             <Nav.Link onClick={() => scrollTo('#our_staff')}>Our Staff</Nav.Link>
             <Nav.Link href="#link">Other Services</Nav.Link>

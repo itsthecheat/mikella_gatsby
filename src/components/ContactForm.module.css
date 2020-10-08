@@ -1,6 +1,6 @@
-.contactForm {
-    margin-bottom: 50px;
+.header {
+    font-family: 'DM Serif Display', serif;
 }
-.formInput {
-    padding-bottom: 1rem !important;
+.formContainer {
+    margin-bottom: 50px;
 }

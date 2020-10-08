@@ -5,6 +5,9 @@
   font-family: 'DM Serif Display', serif;
   font-size: 2rem;
 }
+.navigation {
+  font-family: 'Assistant', serif;
+}
 @media all and (max-width: 480px) {
 .brand {
     font-size: 1.2rem;
