@@ -1,12 +1,25 @@
 
-.sectionImage {
+div .sectionImageLeft {
   margin: 10px;
-  min-width: 200px;
-  float: left;
+  min-width: 300px;
+  float: left
 }
+div .sectionImageRight {
+  float: right;
+  margin: 10px;
+  min-width: 300px
+}
+
 .header {
   text-align: center;
+  font-family: 'DM Serif Display', serif;
 }
 .content {
-   margin-bottom: 100px;
+  margin-bottom: 100px;
+   font-family: 'Assistant', sans-serif;
+}
+@media all and (max-width: 480px) {
+  .sectionImage {
+    float:none;
+  }
 }

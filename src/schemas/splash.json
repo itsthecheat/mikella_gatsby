@@ -1,45 +1,72 @@
 {
-  "Main" : {
-    "title_splash" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1",
-        "label" : "title splash",
-        "placeholder" : "Title for Splash Page"
+  "Main": {
+    "title_splash": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "title splash",
+        "placeholder": "Title for Splash Page"
       }
     },
-    "cover_image" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : { },
-        "thumbnails" : [ ],
-        "label" : "cover image"
+    "background_splash": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "background splash"
       }
     },
-    "body" : {
-      "type" : "Slices",
-      "fieldset" : "Slice zone",
-      "config" : {
-        "labels" : {
-          "link" : [ ]
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "page_link": [],
+          "hero_text": []
         },
-        "choices" : {
-          "link" : {
-            "type" : "Slice",
-            "fieldset" : "link",
-            "description" : "link",
-            "icon" : "link",
-            "display" : "list",
-            "non-repeat" : {
-              "link" : {
-                "type" : "Link",
-                "config" : {
-                  "label" : "link",
-                  "placeholder" : "link"
+        "choices": {
+          "page_link": {
+            "type": "Slice",
+            "fieldset": "page link",
+            "description": "link",
+            "icon": "link",
+            "display": "list",
+            "non-repeat": {
+              "link_name": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "link name",
+                  "placeholder": "Name of link that appears on site"
+                }
+              },
+              "page_link": {
+                "type": "Link",
+                "config": {
+                  "label": "page link",
+                  "placeholder": "link"
                 }
               }
             },
-            "repeat" : { }
+            "repeat": {}
+          },
+          "hero_text": {
+            "type": "Slice",
+            "fieldset": "hero text",
+            "description": "large text on splash page",
+            "icon": "format_color_text",
+            "display": "list",
+            "non-repeat": {
+              "hero_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "hero text",
+                  "placeholder": "text to appear on main splash page"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

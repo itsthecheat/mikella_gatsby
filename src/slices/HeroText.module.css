@@ -1,0 +1,21 @@
+.heroText {
+  text-transform: uppercase;
+  color: whitesmoke;
+  font-size: 4rem;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  padding-top: 50px;
+  z-index: 100;
+}
+.word:nth-child(2n){
+  padding-left: 15rem;
+}
+@media all and (max-width: 480px) {
+ .heroText {
+    font-size: 2rem;
+  }
+  .word:nth-child(2n){
+  padding-left: 5rem;
+}
+}

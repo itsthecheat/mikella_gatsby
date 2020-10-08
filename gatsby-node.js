@@ -16,8 +16,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   const pageTemplates = {
-    page: path.resolve(__dirname, 'src/templates/page-template.js'),
-    // Splash: path.resolve(__dirname, 'src/templates/dark.js'),
+    page: path.resolve(__dirname, 'src/templates/page-template.js')
   }
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicPage.nodes.forEach((node) => {
