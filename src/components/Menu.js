@@ -1,13 +1,13 @@
-import React from 'react'
-import { PropTypes } from 'prop-types'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import React, { useState } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import { Navbar, Nav } from 'react-bootstrap'
 import styles from './Menu.module.css'
-import scrollTo from 'gatsby-plugin-smoothscroll'
+import logo from '../images/mikella_logo.svg'
+import { Link, animateScroll as scroll } from 'react-scroll'
+import { HiArrowDown } from 'react-icons/hi'
 
-export default function Menu() {
-  
-  const data = useStaticQuery(graphql`
+export default function Menu(data) {
+  const props = useStaticQuery(graphql`
     { site {
         siteMetadata {
           title
@@ -47,26 +47,47 @@ export default function Menu() {
     }
   `)
 
-  const image = data.allPrismicPage.edges[0].node.data.body[0].primary.full_width_image
+  const section = data.data.prismicPage.data.body
+  const link_labels = section.map(item => item.primary ? item.primary : null).filter(x => x)
+  
+  const [expanded, setExpanded] = useState(false);
+
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
+  const image = props.allPrismicPage.edges[0].node.data.body[0].primary.full_width_image
+
   return (
     <>
-    <Navbar fixed="top" bg="light" expand="lg">
-      <Navbar.Brand className={styles.brand} as= {Link} to="/">{data.site.siteMetadata.title}</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+      <Navbar expanded={expanded} fixed="top" className={styles.navCustom} bg="light" expand="lg">
+        <img className={styles.logo} src={logo} />    
+        <Navbar.Brand className={styles.brand}><a style={{ color: 'black', textDecoration: 'none'}}href="/">{props.site.siteMetadata.title}</a></Navbar.Brand>
+        <Navbar.Toggle
+          onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="responsive-navbar-nav" >
+          <HiArrowDown className={styles.buttonCollapse} />
+          </Navbar.Toggle>
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           <Nav className={styles.navigation}>
-            <Nav.Link onClick={() => scrollTo('#specializations')}>Specialties</Nav.Link>
-            <Nav.Link onClick={() => scrollTo('#our_staff')}>Our Staff</Nav.Link>
-            <Nav.Link href="#link">Other Services</Nav.Link>
-            <Nav.Link onClick={() => scrollTo('#contact')}>Contact</Nav.Link>
+            {link_labels.map((link) => 
+              <Nav.Link><Link
+                activeClass="active"
+                to={link.section_id}
+                spy={true}
+                smooth="easeInOutCubic"
+                offset={-100}
+                duration={1000}
+                onClick={() => setExpanded(false)}
+              >{link.section_label}</Link></Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
-    </Navbar>
-    <div className ={styles.heroImage} style={{ backgroundImage: `url(${image.url})` }}></div>
+      </Navbar>
+ 
+      <div id="page_top" className={styles.heroImage} style={{ backgroundImage: `url(${image.url})` }}></div>
+     
     </>
   )
 }
 
-Menu.propTypes = {
-  data: PropTypes.object.isRequired,
-}
+

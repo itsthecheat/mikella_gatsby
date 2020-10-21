@@ -1,0 +1,19 @@
+.grecaptcha-badge { visibility: hidden; }
+a {
+  font-family: 'DM Serif Display', serif;
+}
+button.navbar-toggler.navbar-light {
+  border: none;
+  color: black;
+}
+button.navbar-toggler.collapsed {
+  padding: 0;
+   border: none;
+  color: black;
+}
+button.navbar-toggler {
+   padding: 0;
+   border: none;
+  color: black;
+
+}

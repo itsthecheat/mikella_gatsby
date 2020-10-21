@@ -12,7 +12,7 @@ export default ({ data }) => {
 
     return (
       <Container fluid>
-        <span className={styles.splashTitle} dangerouslySetInnerHTML={{ __html: document.title_splash.html }} />
+        <div className={styles.splashTitle} dangerouslySetInnerHTML={{ __html: document.title_splash.html }} />
         <div style={{ backgroundImage: `url(${document.background_splash.url})` }} className={styles.backgroundSplash}></div>
       <div className={styles.overlay}></div>  
         <div className={styles.slices}>

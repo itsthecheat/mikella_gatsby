@@ -1,0 +1,10 @@
+.captcha {
+    font-size: .7rem;
+    font-family: 'Assistant', sans-serif;
+}
+.footer {
+    padding: 5px; 
+    margin-top: auto;
+    text-align: center;
+    background-color: whitesmoke;
+}

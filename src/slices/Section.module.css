@@ -1,4 +1,13 @@
 
+div p a {
+  color: black;
+  text-decoration: none;
+  transition: color ease .2s;
+}
+div p a:hover {
+  color: lightseagreen;
+  text-decoration: none;
+}
 div .sectionImageLeft {
   margin: 10px;
   min-width: 300px;
@@ -9,8 +18,8 @@ div .sectionImageRight {
   margin: 10px;
   min-width: 300px
 }
-
 .header {
+  padding: 25px;
   text-align: center;
   font-family: 'DM Serif Display', serif;
 }
@@ -21,5 +30,8 @@ div .sectionImageRight {
 @media all and (max-width: 480px) {
   .sectionImage {
     float:none;
+  }
+  .header h2 {
+    font-size: 1.5rem;
   }
 }

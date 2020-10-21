@@ -1,0 +1,13 @@
+.header {
+    font-family: 'DM Serif Display', serif;
+    text-align: center;
+    padding: 25px;
+}
+.contact {
+    font-family: 'Assistant', sans-serif;
+    padding-right: 10px;
+}
+.formContainer {
+    justify-content: center;
+    margin-bottom: 50px;
+}

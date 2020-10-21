@@ -1,7 +1,14 @@
 .header {
   justify-content: center;
   font-family: 'DM Serif Display', serif;
+  padding: 25px;
 }
 .content {
   font-family: 'Assistant', sans-serif;
+}
+@media all and (max-width: 480px) {
+
+  .header h2 {
+    font-size: 1.5rem;
+  }
 }

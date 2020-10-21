@@ -1,4 +1,28 @@
 .pageTitle {
   text-align: center;
   font-family: 'DM Serif Display', serif;
+  transform:translate(-50%, -50%);
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  z-index: 1;
+  color: white;
+}
+.pageTitle h1 {
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 3rem;
+  min-width: 300px;
+}
+.icon {
+  padding: 10px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 100;
+}
+@media all and (max-width: 480px) {
+ .pageTitle h1 {
+    font-size: 2rem;
+  }
 }

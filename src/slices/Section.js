@@ -6,8 +6,6 @@ import styles from './Section.module.css'
 
 const Section = ({ data }) => {
   const sectionContent = data.items
-  const [position] = sectionContent.map((item) => item.image_position)
-  const imageClass = position === 'Left' ? styles.sectionImageLeft : styles.sectionImageRight
 
   return (
     <Container>
@@ -18,7 +16,11 @@ const Section = ({ data }) => {
 
         <Row>
           <Col className={styles.content} sm={12} md={12} lg={12}>
-            <Img className={imageClass} fluid={section.image.localFile.childImageSharp.fluid} alt={section.image.alt} />
+            <Img
+              className={section.image_position === 'Left' ? styles.sectionImageLeft : styles.sectionImageRight}
+              fluid={section.image.localFile.childImageSharp.fluid}
+              alt={section.image.alt}
+            />
             <p dangerouslySetInnerHTML={{ __html: section.content.html }} />
           </Col>
         </Row>

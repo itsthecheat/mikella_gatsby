@@ -1,16 +1,19 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container'
-import ContactForm from './ContactForm'
-import styles from './Layout.module.css'
+import { Grid } from '@material-ui/core'
 import Menu from './Menu'
+import Footer from './Footer'
+import styles from './Layout.module.css'
 // eslint-disable-next-line import/order
 
-export default ({ children }) => (
-  <Container fluid style={{ padding: 0 }}>
-    <Menu />
-    <div className={styles.mainContainer}>
-      {children}
-    </div>
-  </Container>
+export default ({ children, data }) => (
+  <>
+    <Grid className={styles.container} fluid style={{ padding: 0 }}>
+      <Menu data={data} />
+      <div className={styles.mainContainer}>
+        {children}
+      </div>
+      <Footer />
+    </Grid>
 
+  </>
 )

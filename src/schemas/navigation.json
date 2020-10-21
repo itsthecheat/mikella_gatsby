@@ -1,0 +1,27 @@
+{
+  "Main": {
+    "top_navigation": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "link",
+              "placeholder": "section to link to"
+            }
+          },
+          "link_label": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "link_label",
+              "placeholder": "name of link as it will appear in navigation bar"
+            }
+          }
+        },
+        "label": "top_navigation"
+      }
+    }
+  }
+}
