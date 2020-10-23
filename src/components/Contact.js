@@ -37,7 +37,7 @@ const Contact = () => {
       <Grid item xs={12} id={content.primary.section_id} className={styles.header} dangerouslySetInnerHTML={{ __html: content.primary.title.html }} />
       <Grid item lg={6} md={6} xs={12} sm={12} className={styles.contact}>
         {content.items.map((paragraph) => (
-          <p dangerouslySetInnerHTML={{ __html: paragraph.text.html }} />
+          <div dangerouslySetInnerHTML={{ __html: paragraph.text.html }} />
         ))}
       </Grid>
       <Form />

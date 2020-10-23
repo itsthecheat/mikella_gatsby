@@ -8,6 +8,12 @@
   z-index: 1;
   color: white;
 }
+.squareContainer {
+  margin: 50px;
+  padding: 2rem;
+  border: solid  grey 1px;
+  border-radius: 20px;
+}
 .pageTitle h1 {
   border: 2px solid white;
   padding: 10px;

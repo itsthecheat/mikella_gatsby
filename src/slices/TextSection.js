@@ -11,7 +11,7 @@ const Text = ({ data }) => {
       <Row id={data.primary.section_id} className={styles.header} dangerouslySetInnerHTML={{ __html: title }} />
       <Row>
         <Col className={styles.content} style={{ marginBottom: '100px' }}>
-          <p dangerouslySetInnerHTML={{ __html: paragraph }} />
+          <div dangerouslySetInnerHTML={{ __html: paragraph }} />
         </Col>
       </Row>
     </Container>

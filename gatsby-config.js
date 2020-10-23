@@ -13,11 +13,22 @@ module.exports = {
    `gatsby-plugin-styled-components`,
    `gatsby-transformer-sharp`,
    `gatsby-plugin-sharp`,
-   `gatsby-transformer-remark`,
    `gatsby-plugin-smoothscroll`,
    `gatsby-transformer-yaml`,
-   `gatsby-plugin-mdx`,
-   {
+    `gatsby-plugin-mdx`,
+  {
+  resolve: `gatsby-plugin-manifest`,
+  options: {
+    name: `Mikella Millen`,
+    short_name: `Mikella Millen`,
+    start_url: `/`,
+    icon: `static/favicon-32x32.png`,
+    background_color: `#000000`,
+    theme_color: `#ffffff`,
+    display: `standalone`,
+      },
+    },
+  {
   resolve: `gatsby-source-filesystem`,
   options: {
     name: `content`,

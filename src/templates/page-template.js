@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
-import React from 'react'
-import { withPreview } from 'gatsby-source-prismic'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { animateScroll as scroll } from 'react-scroll'
 import Container from 'react-bootstrap/Container'
@@ -25,19 +24,30 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Page = ({ data }) => {
+  useState({ loaded: false })
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://square.site/appointments/buyer/widget/9844bf04-5081-4d65-805e-30f04c4c41b7/2K6GKN433C0B9.js'
+    script.addEventListener('load', { loaded: true })
+    if (data.prismicPage.uid === 'other-services') {
+      return document.getElementById('square').appendChild(script)
+    }
+    return null
+  }, [])
+
   const classes = useStyles()
   const scrollToTop = () => scroll.scrollToTop()
-
   const prismicContent = data.prismicPage.data
   if (!prismicContent) return null
-  const document = prismicContent
-  console.log(data)
+  const page = prismicContent
+
   return (
     <Layout data={data}>
-      <div className={styles.pageTitle} dangerouslySetInnerHTML={{ __html: document.page_title.html }} />
-      <Container>
+      <div className={styles.pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
+      <Container id="container">
+        <div id="square" className={data.prismicPage.uid === 'other-services' ? styles.squareContainer : null} />
         {data.prismicPage.uid === 'events' ? <EventBrite /> : null}
-        <SliceZone className={styles.slices} allSlices={document.body} />
+        <SliceZone className={styles.slices} allSlices={page.body} />
         <Fab className={classes.fab} size="small" aria-label="add">
           <UpIcon onClick={scrollToTop} />
         </Fab>
@@ -47,7 +57,7 @@ const Page = ({ data }) => {
 
   )
 }
-export default withPreview(Page)
+export default Page
 
 export const query = graphql`
   query pageQuery ($uid: String) {

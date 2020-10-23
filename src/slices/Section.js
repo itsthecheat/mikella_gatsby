@@ -21,7 +21,7 @@ const Section = ({ data }) => {
               fluid={section.image.localFile.childImageSharp.fluid}
               alt={section.image.alt}
             />
-            <p dangerouslySetInnerHTML={{ __html: section.content.html }} />
+            <div dangerouslySetInnerHTML={{ __html: section.content.html }} />
           </Col>
         </Row>
       ))}

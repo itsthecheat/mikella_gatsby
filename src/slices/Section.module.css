@@ -10,13 +10,13 @@ div p a:hover {
 }
 div .sectionImageLeft {
   margin: 10px;
-  min-width: 300px;
+  min-width: 325px;
   float: left
 }
 div .sectionImageRight {
   float: right;
   margin: 10px;
-  min-width: 300px
+  min-width: 325px
 }
 .header {
   padding: 25px;

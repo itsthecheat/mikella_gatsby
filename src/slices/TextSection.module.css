@@ -1,7 +1,8 @@
 .header {
-  justify-content: center;
   font-family: 'DM Serif Display', serif;
   padding: 25px;
+  text-align: center;
+  justify-content: center;
 }
 .content {
   font-family: 'Assistant', sans-serif;
