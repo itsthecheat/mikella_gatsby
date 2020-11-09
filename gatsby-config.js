@@ -23,7 +23,7 @@ module.exports = {
     short_name: `Mikella Millen`,
     start_url: `/`,
     icon: `static/favicon-32x32.png`,
-    background_color: `#000000`,
+    background_color: `#ffffff`,
     theme_color: `#ffffff`,
     display: `standalone`,
       },

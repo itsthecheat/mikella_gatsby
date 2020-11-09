@@ -31,4 +31,8 @@
  .pageTitle h1 {
     font-size: 2rem;
   }
+  .squareContainer {
+  border: none;
+  margin: 20px;
+}
 }

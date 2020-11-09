@@ -34,4 +34,14 @@ div .sectionImageRight {
   .header h2 {
     font-size: 1.5rem;
   }
+  div .sectionImageLeft {
+  margin: 0 auto;
+  min-width: 0;
+  float: none;
+}
+div .sectionImageRight {
+  float: none;
+  margin: 0 auto;
+  min-width: 0;
+}
 }
