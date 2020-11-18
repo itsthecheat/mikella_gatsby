@@ -27,6 +27,19 @@ const Page = ({ data }) => {
   useState({ loaded: false })
   useEffect(() => {
     const script = document.createElement('script')
+    const scriptMailerLite = document.createElement('script')
+    const js = `(function (m, a, i, l, e, r) {
+      m['MailerLiteObject'] = e; function f() {
+        var c = { a: arguments, q: [] }; var r = this.push(c); return "number" != typeof r ? r : f.bind(c.q);
+      }
+      f.q = f.q || []; m[e] = m[e] || f.bind(f.q); m[e].q = m[e].q || f.q; r = a.createElement(i);
+      var _ = a.getElementsByTagName(i)[0]; r.async = 1; r.src = l + '?v' + (~~(new Date().getTime() / 1000000));
+      _.parentNode.insertBefore(r, _);
+    })(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+    var ml_account = ml('accounts', '1615598', 'y6c1b2g4k1', 'load');`
+    const scriptText = document.createTextNode(js)
+    scriptMailerLite.appendChild(scriptText)
+    document.body.appendChild(scriptMailerLite)
     script.src = 'https://square.site/appointments/buyer/widget/9844bf04-5081-4d65-805e-30f04c4c41b7/2K6GKN433C0B9.js'
     script.addEventListener('load', { loaded: true })
     if (data.prismicPage.uid === 'other-services') {
