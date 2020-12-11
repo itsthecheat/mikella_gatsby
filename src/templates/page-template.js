@@ -10,7 +10,6 @@ import {
   Layout,
   Contact,
   SliceZone,
-  EventBrite,
 } from '../components'
 import styles from './page-template.module.css'
 
@@ -59,7 +58,7 @@ const Page = ({ data }) => {
       <div className={styles.pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
       <Container id="container">
         <div id="square" className={data.prismicPage.uid === 'other-services' ? styles.squareContainer : null} />
-        {data.prismicPage.uid === 'events' ? <EventBrite /> : null}
+
         <SliceZone className={styles.slices} allSlices={page.body} />
         <Fab className={classes.fab} size="small" aria-label="add">
           <UpIcon onClick={scrollToTop} />
