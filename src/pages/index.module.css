@@ -2,7 +2,7 @@
   height: 100vh;
   background-position: center;
   background-size: cover;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
@@ -11,7 +11,7 @@
 .overlay {
   background-color: rgba(0, 0, 0, .6);
   height: 100vh;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
