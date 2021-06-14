@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Navbar, Nav } from 'react-bootstrap'
-import styles from './Menu.module.css'
+import * as styles from './Menu.module.css'
 import logo from '../images/mikella_logo.svg'
 import { Link, animateScroll as scroll } from 'react-scroll'
 import { HiArrowDown } from 'react-icons/hi'
@@ -20,7 +20,7 @@ export default function Menu(data) {
             uid
             data {
               body {
-                ... on PrismicPageBodyFullWidthImage {
+                ... on PrismicPageDataBodyFullWidthImage {
                   id
                   slice_type
                   primary {

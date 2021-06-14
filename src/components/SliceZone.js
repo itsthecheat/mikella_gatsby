@@ -2,7 +2,7 @@ import React from 'react'
 import {
   TextSection, Image, Section, SplashButton, HeroText, Specialty,
 } from '../slices'
-import styles from './SliceZone.module.css'
+import * as styles from './SliceZone.module.css'
 
 const SliceZone = (props) => {
   const { allSlices } = props

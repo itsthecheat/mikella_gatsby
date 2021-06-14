@@ -11,7 +11,7 @@ import {
   Contact,
   SliceZone,
 } from '../components'
-import styles from './page-template.module.css'
+import * as styles from './page-template.module.css'
 
 const useStyles = makeStyles((theme) => ({
   fab: {
@@ -39,12 +39,12 @@ const Page = ({ data }) => {
     const scriptText = document.createTextNode(js)
     scriptMailerLite.appendChild(scriptText)
     document.body.appendChild(scriptMailerLite)
-    script.src = 'https://square.site/appointments/buyer/widget/9844bf04-5081-4d65-805e-30f04c4c41b7/2K6GKN433C0B9.js'
-    script.addEventListener('load', { loaded: true })
-    if (data.prismicPage.uid === 'other-services') {
-      return document.getElementById('square').appendChild(script)
-    }
-    return null
+    // script.src = 'https://square.site/appointments/buyer/widget/9844bf04-5081-4d65-805e-30f04c4c41b7/2K6GKN433C0B9.js'
+    // script.addEventListener('load', { loaded: true })
+    // if (data.prismicPage.uid === 'other-services') {
+    //   return document.getElementById('square').appendChild(script)
+    // }
+    // return null
   }, [])
 
   const classes = useStyles()
@@ -57,7 +57,8 @@ const Page = ({ data }) => {
     <Layout data={data}>
       <div className={styles.pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
       <Container id="container">
-        <div id="square" className={data.prismicPage.uid === 'other-services' ? styles.squareContainer : null} />
+
+        {/* <div id="square" className={data.prismicPage.uid === 'other-services' ? styles.squareContainer : null} /> */}
 
         <SliceZone className={styles.slices} allSlices={page.body} />
         <Fab className={classes.fab} size="small" aria-label="add">
@@ -79,7 +80,7 @@ export const query = graphql`
       id
       data {
         body {
-          ... on PrismicPageBodyText {
+          ... on PrismicPageDataBodyText {
             id
             slice_type
             items {
@@ -96,7 +97,7 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicPageBodyImage {
+          ... on PrismicPageDataBodyImage {
             id
             slice_type
             primary {
@@ -114,7 +115,7 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicPageBodySection {
+          ... on PrismicPageDataBodySection {
             id
             items {
               content {
@@ -142,7 +143,7 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicPageBodySpecializations {
+          ... on PrismicPageDataBodySpecializations {
             id
             primary {
               section_id
@@ -162,7 +163,7 @@ export const query = graphql`
                 alt
                 copyright
                 url
-                thumbnails
+
               }
             }
             slice_type

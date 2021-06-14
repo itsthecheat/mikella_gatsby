@@ -15,7 +15,8 @@ module.exports = {
    `gatsby-plugin-sharp`,
    `gatsby-plugin-smoothscroll`,
    `gatsby-transformer-yaml`,
-    `gatsby-plugin-mdx`,
+   `gatsby-plugin-mdx`,
+   `gatsby-plugin-image`,
   {
   resolve: `gatsby-plugin-manifest`,
   options: {
@@ -39,14 +40,22 @@ module.exports = {
   resolve: `gatsby-source-prismic`,
   options: {
     repositoryName: `mikellamillen`,
-    linkResolver: () => (page) => `/${page.uid}`,
+    linkResolver: (doc) => `/${doc.uid}`,
     schemas: {
-        page: require('./src/schemas/page.json'),
-        splash: require('./src/schemas/splash.json'),
+      page: require('./src/schemas/page.json'),
+      splash: require('./src/schemas/splash.json'),
+      navigation: {},
       },
     accessToken: `${process.env.API_KEY}`,
-    shouldDownloadImage: ({ node, key, value }) => { return true },
   },
+    },
+{
+      resolve: 'gatsby-plugin-prismic-previews',
+      options: {
+        repositoryName: `mikellamillen`,
+        accessToken: `${process.env.API_KEY}`,
+        toolbar: 'new',
+      },
 },
  ],
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
-import styles from './TextSection.module.css'
+import * as styles from './TextSection.module.css'
 
 const Text = ({ data }) => {
   const paragraph = data.items[0].text.html

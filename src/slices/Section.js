@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import Img from 'gatsby-image'
-import styles from './Section.module.css'
+import * as styles from './Section.module.css'
 
 const Section = ({ data }) => {
   const sectionContent = data.items

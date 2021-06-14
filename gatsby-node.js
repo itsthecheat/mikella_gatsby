@@ -1,5 +1,4 @@
 const path = require('path')
-const fs = require('fs')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -21,6 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicPage.nodes.forEach((node) => {
+    console.log(node.uid)
     createPage({
       path: `/${node.uid}`,
       component: pageTemplates.page,
@@ -30,21 +30,3 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
-
-// exports.onPostBuild = async ({ graphql }) => {
-//   await graphql(`
-//   {
-//     allPrismicPage {
-//       edges {
-//         node {
-//           data {
-//             body
-//           }
-//         }
-//       }
-//     }
-//   }
-//   `).then((result) => {
-//     console.log (JSON.stringify(result))
-//   })
-// }

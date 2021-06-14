@@ -3,32 +3,41 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Grid } from '@material-ui/core'
 import Form from './Form'
-import styles from './Contact.module.css'
+import * as styles from './Contact.module.css'
 
 const Contact = () => {
   const data = useStaticQuery(graphql`
     {
-      prismicPageBodyTextSection {
+      prismicPage {
+        uid
+        url
         id
-        slice_label
-        primary {
-          section_id
-          section_label
-          title {
-            html
-          }
-        }
-        items {
-          columns
-          text {
-            html
+        data {
+          body {
+            ... on PrismicPageDataBodyTextSection {
+              id
+              slice_label
+              primary {
+                section_id
+                section_label
+                title {
+                  html
+                }
+              }
+              items {
+                columns
+                text {
+                  html
+                }
+              }
+            }
           }
         }
       }
     }
   `)
-  const content = data.prismicPageBodyTextSection
 
+  const content = data.prismicPage.data.body[6]
   return (
     <Grid
       className={styles.formContainer}
@@ -44,4 +53,5 @@ const Contact = () => {
     </Grid>
   )
 }
+
 export default Contact

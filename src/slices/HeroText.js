@@ -1,6 +1,6 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import styles from './HeroText.module.css'
+import * as styles from './HeroText.module.css'
 
 const HeroText = ({ data }) => {
   const { text } = data.primary.hero_text

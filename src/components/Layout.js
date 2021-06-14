@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 import Menu from './Menu'
 import Footer from './Footer'
-import styles from './Layout.module.css'
+import * as styles from './Layout.module.css'
 // eslint-disable-next-line import/order
 
 export default ({ children, data }) => (

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styles from './SplashButton.module.css'
+import * as styles from './SplashButton.module.css'
 
 const SplashButton = ({ data }) => {
+  console.log(data)
   const link = data.primary.page_link.url
 
   return (

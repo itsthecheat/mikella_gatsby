@@ -1,7 +1,6 @@
-import React from "react"
+import React from 'react'
 
-
-
-export default () => (
+const Error = () => {
   <h1>Page not found</h1>
-)
+}
+export default Error
