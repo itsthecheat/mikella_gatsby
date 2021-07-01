@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React, { useEffect } from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import * as styles from './Section.module.css'
 
 const Section = ({ data }) => {
@@ -16,9 +16,9 @@ const Section = ({ data }) => {
 
         <Row>
           <Col className={styles.content} sm={12} md={12} lg={12}>
-            <Img
+            <GatsbyImage
+              image={section.image.localFile.childImageSharp.gatsbyImageData}
               className={section.image_position === 'Left' ? styles.sectionImageLeft : styles.sectionImageRight}
-              fluid={section.image.localFile.childImageSharp.fluid}
               alt={section.image.alt}
             />
             <div dangerouslySetInnerHTML={{ __html: section.content.html }} />

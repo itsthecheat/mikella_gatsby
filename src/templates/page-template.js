@@ -72,107 +72,101 @@ const Page = ({ data }) => {
 }
 export default Page
 
-export const query = graphql`
-  query pageQuery ($uid: String) {
-    prismicPage (uid: { eq: $uid }) {
-      uid
-      url
-      id
-      data {
-        body {
-          ... on PrismicPageDataBodyText {
-            id
-            slice_type
-            items {
-              columns
-              text {
-                html
-              }
-            }
-            primary {
-              section_id
-              section_label
-              title {
-                html
-              }
+export const query = graphql`query pageQuery($uid: String) {
+  prismicPage(uid: {eq: $uid}) {
+    uid
+    url
+    id
+    data {
+      body {
+        ... on PrismicPageDataBodyText {
+          id
+          slice_type
+          items {
+            columns
+            text {
+              html
             }
           }
-          ... on PrismicPageDataBodyImage {
-            id
-            slice_type
-            primary {
-              image {
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                    id
-                  }
-                }
-                url
-                alt
-              }
+          primary {
+            section_id
+            section_label
+            title {
+              html
             }
-          }
-          ... on PrismicPageDataBodySection {
-            id
-            items {
-              content {
-                html
-              }
-              image {
-                alt
-                url
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              image_position
-            }
-            slice_type
-            primary {
-              section_id
-              section_label
-              title {
-                html
-              }
-            }
-          }
-          ... on PrismicPageDataBodySpecializations {
-            id
-            primary {
-              section_id
-              section_label
-              specialty_title {
-                html
-              }
-            }
-            items {
-              description_title {
-                html
-              }
-              specialty_description {
-                text
-              }
-              specialty_image {
-                alt
-                copyright
-                url
-
-              }
-            }
-            slice_type
           }
         }
-        page_title {
-          html
+        ... on PrismicPageDataBodyImage {
+          id
+          slice_type
+          primary {
+            image {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                  id
+                }
+              }
+              url
+              alt
+            }
+          }
         }
+        ... on PrismicPageDataBodySection {
+          id
+          items {
+            content {
+              html
+            }
+            image {
+              alt
+              url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+            }
+            image_position
+          }
+          slice_type
+          primary {
+            section_id
+            section_label
+            title {
+              html
+            }
+          }
+        }
+        ... on PrismicPageDataBodySpecializations {
+          id
+          primary {
+            section_id
+            section_label
+            specialty_title {
+              html
+            }
+          }
+          items {
+            description_title {
+              html
+            }
+            specialty_description {
+              text
+            }
+            specialty_image {
+              alt
+              copyright
+              url
+            }
+          }
+          slice_type
+        }
+      }
+      page_title {
+        html
       }
     }
   }
+}
 `
