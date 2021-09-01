@@ -39,12 +39,12 @@ const Page = ({ data }) => {
     const scriptText = document.createTextNode(js)
     scriptMailerLite.appendChild(scriptText)
     document.body.appendChild(scriptMailerLite)
-    // script.src = 'https://square.site/appointments/buyer/widget/9844bf04-5081-4d65-805e-30f04c4c41b7/2K6GKN433C0B9.js'
-    // script.addEventListener('load', { loaded: true })
-    // if (data.prismicPage.uid === 'other-services') {
-    //   return document.getElementById('square').appendChild(script)
-    // }
-    // return null
+    script.src = 'https://embed.acuityscheduling.com/js/embed.js'
+    script.addEventListener('load', { loaded: true })
+    if (data.prismicPage.uid === 'events') {
+      return document.getElementById('square').appendChild(script)
+    }
+    return null
   }, [])
 
   const classes = useStyles()
@@ -58,7 +58,15 @@ const Page = ({ data }) => {
       <div className={styles.pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
       <Container id="container">
 
-        {/* <div id="square" className={data.prismicPage.uid === 'other-services' ? styles.squareContainer : null} /> */}
+        {data.prismicPage.uid === 'events'
+          ? (
+
+            <div id="square" className={styles.squareContainer}>
+              <iframe src="https://app.acuityscheduling.com/schedule.php?owner=21420573&calendarID=4821387" title="Schedule Appointment" width="100%" height="800" frameBorder="0" />
+            </div>
+
+          )
+          : null}
 
         <SliceZone className={styles.slices} allSlices={page.body} />
         <Fab className={classes.fab} size="small" aria-label="add">

@@ -23,7 +23,7 @@ const EventBrite = (data) => {
   useState({ loaded: false })
   useEffect(() => {
     const scriptAcuity = document.createElement('script')
-    scriptAcuity.src = 'https://embed.acuityscheduling.com/embed/bar/21420573.js'
+    scriptAcuity.src = 'https://embed.acuityscheduling.com/js/embed.js" type="text/javascript'
     scriptAcuity.addEventListener('load', { loaded: true })
     return document.getElementById('acuity').appendChild(scriptAcuity)
   }, [])
@@ -32,7 +32,7 @@ const EventBrite = (data) => {
       <div id="acuity">
         <div className="acuity-booking-bar" style={{ display: 'none' }}>
           Mikella Millen
-          <a href="https://app.acuityscheduling.com/schedule.php?owner=21420573&template=class" target="_blank" className="acuity-embed-button">Schedule Appointment</a>
+          <iframe src="https://app.acuityscheduling.com/schedule.php?owner=21420573&calendarID=4821387" title="Schedule Appointment" width="100%" height="800" frameBorder="0" />
         </div>
       </div>
     </Row>
