@@ -1,6 +1,26 @@
-import React from 'react'
+// 404.js file
+import * as React from 'react'
+import { withPrismicUnpublishedPreview, componentResolverFromMap } from 'gatsby-plugin-prismic-previews'
+import { linkResolver } from '../utils/linkResolver'
+import Splash from './index'
+import Page from '../templates/page-template'
 
-const Error = () => {
-  <h1>Page not found</h1>
-}
-export default Error
+const NotFoundPage = () => (
+  <div>
+    <h1>Not found</h1>
+  </div>
+)
+
+export default withPrismicUnpublishedPreview(
+  NotFoundPage,
+  [
+    {
+      repositoryName: process.env.PRISMIC_REPO,
+      linkResolver,
+      componentResolver: componentResolverFromMap({
+        homepage: Splash,
+        page: Page,
+      }),
+    },
+  ],
+)

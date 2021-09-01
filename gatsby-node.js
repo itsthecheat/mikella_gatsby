@@ -10,22 +10,19 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           id
           uid
+          url
         }
       }
     }
   `)
 
-  const pageTemplates = {
-    page: path.resolve(__dirname, 'src/templates/page-template.js')
-  }
   // Create pages for each Page in Prismic using the selected template.
-  pages.data.allPrismicPage.nodes.forEach((node) => {
-    console.log(node.uid)
+  pages.data.allPrismicPage.nodes.forEach((page) => {
     createPage({
-      path: `/${node.uid}`,
-      component: pageTemplates.page,
+      path: page.url,
+      component: path.resolve(__dirname, 'src/templates/page-template.js'),
       context: {
-        uid: node.uid,
+        id: page.id,
       },
     })
   })

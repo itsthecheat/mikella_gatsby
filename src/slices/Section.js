@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import * as styles from './Section.module.css'

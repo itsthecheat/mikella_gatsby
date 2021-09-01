@@ -1,11 +1,13 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { graphql } from 'gatsby'
 import { animateScroll as scroll } from 'react-scroll'
 import Container from 'react-bootstrap/Container'
 import Fab from '@material-ui/core/Fab'
 import UpIcon from '@material-ui/icons/KeyboardArrowUp'
 import { makeStyles } from '@material-ui/core/styles'
+import { linkResolver } from '../utils/linkResolver'
 import {
   Layout,
   Contact,
@@ -78,10 +80,17 @@ const Page = ({ data }) => {
 
   )
 }
-export default Page
+export default withPrismicPreview(Page, [
+  {
+    repositoryName: process.env.PRISMIC_REPO,
+    linkResolver,
+  },
+])
 
-export const query = graphql`query pageQuery($uid: String) {
-  prismicPage(uid: {eq: $uid}) {
+export const query = graphql`
+query pageQuery($id: String) {
+  prismicPage(id: {eq: $id}) {
+    _previewable
     uid
     url
     id

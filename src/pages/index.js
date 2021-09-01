@@ -1,33 +1,41 @@
-import React from 'react'
+import * as React from 'react'
 import { graphql } from 'gatsby'
-import * as styles from './index.module.css'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { Container } from 'react-bootstrap'
+import { linkResolver } from '../utils/linkResolver'
+import * as styles from './index.module.css'
 import SliceZone from '../components/SliceZone'
 
 const Splash = ({ data }) => {
   const prismicContent = data.allPrismicSplash.edges[0]
-    if (!prismicContent) return null
-    const document = prismicContent.node.data
+  if (!prismicContent) return null
+  const document = prismicContent.node.data
 
-    return (
-      <Container fluid>
-        <div className={styles.splashTitle} dangerouslySetInnerHTML={{ __html: document.title_splash.html }} />
-        <div style={{ backgroundImage: `url(${document.background_splash.url})` }} className={styles.backgroundSplash}></div>
-      <div className={styles.overlay}></div>  
-        <div className={styles.slices}>
-          <SliceZone allSlices={document.body} />
-        </div>
-      </Container>
-    )
-  
+  return (
+    <Container fluid>
+      <div className={styles.splashTitle} dangerouslySetInnerHTML={{ __html: document.title_splash.html }} />
+      <div style={{ backgroundImage: `url(${document.background_splash.url})` }} className={styles.backgroundSplash} />
+      <div className={styles.overlay} />
+      <div className={styles.slices}>
+        <SliceZone allSlices={document.body} />
+      </div>
+    </Container>
+  )
 }
-export default Splash;
+export default withPrismicPreview(Splash, [
+  {
+    repositioryName: process.env.PRISMIC_REPO,
+    linkResolver,
+  },
+])
 
 export const query = graphql`
   {
     allPrismicSplash {
       edges {
         node {
+          _previewable
+          url
           data {
             body {
               ... on PrismicSplashDataBodyHeroText {
