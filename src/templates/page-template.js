@@ -57,6 +57,7 @@ const Page = ({ data }) => {
 
   return (
     <Layout data={data}>
+      <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=mikellamillen" />
       <div className={styles.pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
       <Container id="container">
 

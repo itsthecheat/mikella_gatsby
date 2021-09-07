@@ -13,6 +13,7 @@ const Splash = ({ data }) => {
 
   return (
     <Container fluid>
+      <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=mikellamillen" />
       <div className={styles.splashTitle} dangerouslySetInnerHTML={{ __html: document.title_splash.html }} />
       <div style={{ backgroundImage: `url(${document.background_splash.url})` }} className={styles.backgroundSplash} />
       <div className={styles.overlay} />
