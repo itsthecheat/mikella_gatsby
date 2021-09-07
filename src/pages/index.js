@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { Container } from 'react-bootstrap'
+import { linkResolver } from '../utils/linkResolver'
 import * as styles from './index.module.css'
 import SliceZone from '../components/SliceZone'
 
@@ -21,7 +23,12 @@ const Splash = ({ data }) => {
     </Container>
   )
 }
-export default Splash
+export default withPrismicPreview(Splash, [
+  {
+    repositioryName: 'mikellamillen',
+    linkResolver,
+  },
+])
 
 export const query = graphql`
   {

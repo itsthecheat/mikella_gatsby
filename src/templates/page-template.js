@@ -1,11 +1,13 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { graphql } from 'gatsby'
 import { animateScroll as scroll } from 'react-scroll'
 import Container from 'react-bootstrap/Container'
 import Fab from '@material-ui/core/Fab'
 import UpIcon from '@material-ui/icons/KeyboardArrowUp'
 import { makeStyles } from '@material-ui/core/styles'
+import { linkResolver } from '../utils/linkResolver'
 import {
   Layout,
   Contact,
@@ -55,6 +57,7 @@ const Page = ({ data }) => {
 
   return (
     <Layout data={data}>
+      <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=mikellamillen" />
       <div className={styles.pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
       <Container id="container">
 
@@ -78,7 +81,12 @@ const Page = ({ data }) => {
 
   )
 }
-export default Page
+export default withPrismicPreview(Page, [
+  {
+    repositoryName: 'mikellamillen',
+    linkResolver,
+  },
+])
 
 export const query = graphql`
 query pageQuery($id: String) {

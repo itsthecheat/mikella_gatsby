@@ -5,10 +5,10 @@ import 'typeface-raleway'
 import 'typeface-assistant'
 import 'typeface-fira-sans'
 import * as React from 'react'
-// import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
+import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
 
 import 'gatsby-plugin-prismic-previews/dist/styles.css'
 
-// export const wrapRootElement = ({ element }) => (
-//   <PrismicPreviewProvider>{element}</PrismicPreviewProvider>
-// )
+export const wrapRootElement = ({ element }) => (
+  <PrismicPreviewProvider>{element}</PrismicPreviewProvider>
+)
