@@ -10,7 +10,7 @@ const PreviewPage = () => (
 
 export default withPrismicPreviewResolver(PreviewPage, [
   {
-    repositoryName: process.env.PRISMIC_REPO,
+    repositoryName: 'mikellamillen',
     linkResolver,
   },
 ])
