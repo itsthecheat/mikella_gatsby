@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { PropTypes } from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Navbar, Nav } from 'react-bootstrap'
 import { Link, animateScroll as scroll } from 'react-scroll'
@@ -6,7 +7,7 @@ import { HiArrowDown } from 'react-icons/hi'
 import logo from '../images/mikella_logo.svg'
 import * as styles from './Menu.module.css'
 
-export default function Menu(data) {
+const Menu = ({ data }) => {
   const props = useStaticQuery(graphql`
     { site {
         siteMetadata {
@@ -47,7 +48,8 @@ export default function Menu(data) {
     }
   `)
 
-  const section = data.data.prismicPage.data.body
+  const section = data.prismicPage.data.body
+  // eslint-disable-next-line camelcase
   const link_labels = section.map((item) => (item.primary ? item.primary : null)).filter((x) => x)
 
   const [expanded, setExpanded] = useState(false)
@@ -61,7 +63,7 @@ export default function Menu(data) {
   return (
     <>
       <Navbar expanded={expanded} fixed="top" className={styles.navCustom} bg="light" expand="lg">
-        <img className={styles.logo} src={logo} />
+        <img alt="logo" className={styles.logo} src={logo} />
         <Navbar.Brand className={styles.brand}><a style={{ color: 'black', textDecoration: 'none' }} href="/">{props.site.siteMetadata.title}</a></Navbar.Brand>
         <Navbar.Toggle
           onClick={() => setExpanded(expanded ? false : 'expanded')}
@@ -81,6 +83,7 @@ export default function Menu(data) {
                   offset={-100}
                   duration={1000}
                   onClick={() => setExpanded(false)}
+                  key={link.id}
                 >
                   {link.section_label}
                 </Link>
@@ -95,3 +98,7 @@ export default function Menu(data) {
     </>
   )
 }
+Menu.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+export default Menu
