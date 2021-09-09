@@ -2,20 +2,18 @@
     display: flex;
     flex-grow: 1;
     font-family: 'Assistant', sans-serif;
-}.item:nth-child(2n) {
-    color: blue;
 }
 .title {
     text-align: center;
     font-family: 'DM Serif Display', serif;
 }
-.item {
-    padding: 10px;
-    margin: 25px;
-    height: 500px;
-}
 @media all and (max-width: 480px) {
  .item {
     font-size: .85rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .item {
+    height: 500px;
   }
 }

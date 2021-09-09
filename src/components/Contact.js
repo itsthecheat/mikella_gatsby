@@ -47,6 +47,7 @@ const Contact = () => {
 
       <Grid item lg={6} md={6} xs={12} sm={12} className={styles.contact}>
         {content.items.map((paragraph) => (
+          // eslint-disable-next-line react/no-danger
           <div dangerouslySetInnerHTML={{ __html: paragraph.text.html }} />
         ))}
       </Grid>

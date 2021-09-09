@@ -9,9 +9,13 @@
   z-index: 100;
   letter-spacing: 5px;
   position: relative;
+  margin: 25px;
 }
 .word:nth-child(2n){
   margin-left: 10rem;
+}
+.word {
+  margin-top: 5px;
 }
 @media all and (max-width: 480px) {
  .heroText {

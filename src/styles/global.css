@@ -2,18 +2,27 @@
 a {
   font-family: 'DM Serif Display', serif;
 }
+a.active {
+  color: black;
+  text-decoration: none;
+}
 button.navbar-toggler.navbar-light {
   border: none;
   color: black;
 }
 button.navbar-toggler.collapsed {
-  padding: 0;
+  padding: 10px;
    border: none;
   color: black;
 }
 button.navbar-toggler {
-   padding: 0;
+   padding: 10px;
    border: none;
   color: black;
-
+}
+button.navbar-toggler:focus {
+  box-shadow: none;
+}
+div.navbar-nav {
+  padding-left: 10px;
 }

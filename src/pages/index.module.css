@@ -19,7 +19,7 @@
   z-index: 1;
 }
 .splashTitle h1 {
-  margin-top: 25px;
+  margin: 25px;
   font-size: 3rem;
   font-family: 'DM Serif Display', serif;
   font-weight: 100;
@@ -33,7 +33,7 @@
 @media all and (max-width: 480px) {
 .splashTitle h1 {
     font-size: 1.75rem;
-    margin-top: 15px;
+    margin: 15px;
 
   }
 }

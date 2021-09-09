@@ -8,6 +8,9 @@ import logo from '../images/mikella_logo.svg'
 import * as styles from './Menu.module.css'
 
 const Menu = ({ data }) => {
+  const { prismicPage } = data
+  const section = prismicPage.data.body
+
   const props = useStaticQuery(graphql`
     { site {
         siteMetadata {
@@ -47,8 +50,8 @@ const Menu = ({ data }) => {
       }
     }
   `)
-
-  const section = data.prismicPage.data.body
+  const { site, allPrismicPage } = props
+  const { siteMetadata } = site
   // eslint-disable-next-line camelcase
   const link_labels = section.map((item) => (item.primary ? item.primary : null)).filter((x) => x)
 
@@ -58,13 +61,13 @@ const Menu = ({ data }) => {
     scroll.scrollToTop()
   }
 
-  const image = props.allPrismicPage.edges[0].node.data.body[0].primary.full_width_image
+  const image = allPrismicPage.edges[0].node.data.body[0].primary.full_width_image
 
   return (
     <>
       <Navbar expanded={expanded} fixed="top" className={styles.navCustom} bg="light" expand="lg">
         <img alt="logo" className={styles.logo} src={logo} />
-        <Navbar.Brand className={styles.brand}><a style={{ color: 'black', textDecoration: 'none' }} href="/">{props.site.siteMetadata.title}</a></Navbar.Brand>
+        <Navbar.Brand className={styles.brand}><a style={{ color: 'black', textDecoration: 'none' }} href="/">{siteMetadata.title}</a></Navbar.Brand>
         <Navbar.Toggle
           onClick={() => setExpanded(expanded ? false : 'expanded')}
           aria-controls="responsive-navbar-nav"
