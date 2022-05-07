@@ -1,10 +1,10 @@
 import React from 'react'
-import * as styles from './Footer.module.css'
+import { footer, captcha } from './Footer.module.css'
 
 const Footer = () => (
-  <div className={styles.footer}>
+  <div className={footer}>
 
-    <p className={styles.captcha}>
+    <p className={captcha}>
       ©
       {' '}
       {new Date().getFullYear()}

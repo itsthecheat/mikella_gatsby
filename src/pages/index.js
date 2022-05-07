@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { Container } from 'react-bootstrap'
 import { linkResolver } from '../utils/linkResolver'
-import * as styles from './index.module.css'
+import { splashTitle, overlay, backgroundSplash } from './index.module.css'
 import SliceZone from '../components/SliceZone'
 
 const Splash = ({ data }) => {
@@ -13,10 +13,10 @@ const Splash = ({ data }) => {
 
   return (
     <Container fluid>
-      <div className={styles.splashTitle} dangerouslySetInnerHTML={{ __html: document.title_splash.html }} />
-      <div style={{ backgroundImage: `url(${document.background_splash.url})` }} className={styles.backgroundSplash} />
-      <div className={styles.overlay} />
-      <div className={styles.slices}>
+      <div className={splashTitle} dangerouslySetInnerHTML={{ __html: document.title_splash.html }} />
+      <div style={{ backgroundImage: `url(${document.background_splash.url})` }} className={backgroundSplash} />
+      <div className={overlay} />
+      <div>
         <SliceZone allSlices={document.body} />
       </div>
     </Container>

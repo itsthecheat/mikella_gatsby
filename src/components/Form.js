@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import axios from 'axios'
-import * as styles from './Form.module.css'
+import { form, button, message } from './Form.module.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -69,7 +69,7 @@ const Form = () => {
 
   return (
 
-    <Grid item className={styles.form}>
+    <Grid item>
       <form onSubmit={handleSubmit} action="https://getform.io/f/40437bee-4e31-4434-85e0-b7fcb6d5224f" name="contactMe" method="post" className={classes.root} target="_blank">
         <TextField
           name="name"
@@ -112,7 +112,7 @@ const Form = () => {
         />
         <br />
         <Button
-          className={styles.button}
+          className={button}
           size="small"
           type="submit"
           variant="outlined"
@@ -121,7 +121,7 @@ const Form = () => {
           Submit
         </Button>
         {serverState.status && (
-          <p className={styles.message}>
+          <p className={message}>
             {!serverState.status.ok ? 'Error' : serverState.status.msg}
           </p>
         )}

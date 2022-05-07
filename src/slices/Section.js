@@ -17,7 +17,7 @@ const Section = ({ data }) => {
         <Row>
           <Col className={styles.content} sm={12} md={12} lg={12}>
             <GatsbyImage
-              image={section.image.localFile.childImageSharp.gatsbyImageData}
+              image={section.image.gatsbyImageData}
               className={section.image_position === 'Left' ? styles.sectionImageLeft : styles.sectionImageRight}
               alt={section.image.alt}
             />

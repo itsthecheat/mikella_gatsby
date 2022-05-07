@@ -2,8 +2,8 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Grid } from '@material-ui/core'
-import Form from './Form'
-import * as styles from './Contact.module.css'
+// import Form from './Form'
+import { formContainer, badge } from './Contact.module.css'
 
 const Contact = () => {
   const data = useStaticQuery(graphql`
@@ -40,10 +40,10 @@ const Contact = () => {
   const content = data.prismicPage.data.body[6]
   return (
     <Grid
-      className={styles.formContainer}
+      className={formContainer}
       container
     >
-      <Grid item xs={12} id={content.primary.section_id} className={styles.header} dangerouslySetInnerHTML={{ __html: content.primary.title.html }} />
+      {/* <Grid item xs={12} id={content.primary.section_id} className={styles.header} dangerouslySetInnerHTML={{ __html: content.primary.title.html }} />
 
       <Grid item lg={6} md={6} xs={12} sm={12} className={styles.contact}>
         {content.items.map((paragraph) => (
@@ -51,8 +51,8 @@ const Contact = () => {
           <div dangerouslySetInnerHTML={{ __html: paragraph.text.html }} />
         ))}
       </Grid>
-      <Form />
-      <a className={styles.badge} href="https://www.inclusivetherapists.com/new-york/new-york/mikella-millen" title="Find me on Inclusive Therapists" target="_blank" rel="noreferrer"><img src="https://www.inclusivetherapists.com/images/badges/12.png" border="0" /></a>
+      <Form /> */}
+      <a className={badge} href="https://www.inclusivetherapists.com/new-york/new-york/mikella-millen" title="Find me on Inclusive Therapists" target="_blank" rel="noreferrer"><img src="https://www.inclusivetherapists.com/images/badges/12.png" border="0" /></a>
     </Grid>
   )
 }

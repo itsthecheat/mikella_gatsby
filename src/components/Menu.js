@@ -5,7 +5,7 @@ import { Navbar, Nav } from 'react-bootstrap'
 import { Link, animateScroll as scroll } from 'react-scroll'
 import { HiArrowDown } from 'react-icons/hi'
 import logo from '../images/mikella_logo.svg'
-import * as styles from './Menu.module.css'
+import { logoSize, brand, navigation, heroImage, navCustom } from './Menu.module.css'
 
 const Menu = ({ data }) => {
   const { prismicPage } = data
@@ -65,17 +65,17 @@ const Menu = ({ data }) => {
 
   return (
     <>
-      <Navbar expanded={expanded} fixed="top" className={styles.navCustom} bg="light" expand="lg">
-        <img alt="logo" className={styles.logo} src={logo} />
-        <Navbar.Brand className={styles.brand}><a style={{ color: 'black', textDecoration: 'none' }} href="/">{siteMetadata.title}</a></Navbar.Brand>
+      <Navbar expanded={expanded} fixed="top" className={navCustom} bg="light" expand="lg">
+        <img alt="logo" className={logoSize} src={logo} />
+        <Navbar.Brand className={brand}><a style={{ color: 'black', textDecoration: 'none' }} href="/">{siteMetadata.title}</a></Navbar.Brand>
         <Navbar.Toggle
           onClick={() => setExpanded(expanded ? false : 'expanded')}
           aria-controls="responsive-navbar-nav"
         >
-          <HiArrowDown className={styles.buttonCollapse} />
+          <HiArrowDown />
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-          <Nav className={styles.navigation}>
+          <Nav className={navigation}>
             {link_labels.map((link) => (
               <Nav.Link>
                 <Link
@@ -96,7 +96,7 @@ const Menu = ({ data }) => {
         </Navbar.Collapse>
       </Navbar>
 
-      <div id="page_top" className={styles.heroImage} style={{ backgroundImage: `url(${image.url})` }} />
+      <div id="page_top" className={heroImage} style={{ backgroundImage: `url(${image.url})` }} />
 
     </>
   )

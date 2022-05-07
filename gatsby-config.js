@@ -14,7 +14,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-smoothscroll',
     'gatsby-transformer-yaml',
-    'gatsby-plugin-mdx',
     'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-manifest',

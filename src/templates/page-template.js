@@ -13,7 +13,7 @@ import {
   Contact,
   SliceZone,
 } from '../components'
-import * as styles from './page-template.module.css'
+import { pageTitle, squareContainer} from './page-template.module.css'
 
 const useStyles = makeStyles((theme) => ({
   fab: {
@@ -57,20 +57,20 @@ const Page = ({ data }) => {
 
   return (
     <Layout data={data}>
-      <div className={styles.pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
+      <div className={pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
       <Container id="container">
 
         {data.prismicPage.uid === 'events'
           ? (
 
-            <div id="square" className={styles.squareContainer}>
+            <div id="square" className={squareContainer}>
               <iframe src="https://app.acuityscheduling.com/schedule.php?owner=21420573&calendarID=4821387" title="Schedule Appointment" width="100%" height="800" frameBorder="0" />
             </div>
 
           )
           : null}
 
-        <SliceZone className={styles.slices} allSlices={page.body} />
+        <SliceZone allSlices={page.body} />
         <Fab className={classes.fab} size="small" aria-label="add">
           <UpIcon onClick={scrollToTop} />
         </Fab>
@@ -137,12 +137,7 @@ query pageQuery($id: String) {
             }
             image {
               alt
-              url
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
-                }
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
             image_position
           }

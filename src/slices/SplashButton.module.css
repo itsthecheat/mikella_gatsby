@@ -10,9 +10,9 @@
   position: relative;
   padding: 10px;
   width: 160px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   z-index: 100;
-  top: 85px;
+  top: 75px;
 }
 .splashButton:hover {
   background-color: whitesmoke;

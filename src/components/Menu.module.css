@@ -6,7 +6,7 @@
   padding-top: 0;
   padding-bottom: 0;
 }
-.logo {
+.logoSize {
   width: 6rem;
   z-index: 1;
 }
@@ -22,7 +22,7 @@
 .brand {
     font-size: 1.2rem;
   }
-  .logo {
+  .logoSize {
   width: 4rem;
 }
 }
