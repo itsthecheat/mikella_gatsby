@@ -29,6 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
+//hide warning
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     plugins: [
