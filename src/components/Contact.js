@@ -52,6 +52,13 @@ const Contact = () => {
         ))}
       </Grid>
       <Form /> */}
+      <Grid item lg={6} md={6} xs={12} sm={12}>
+         <div class="ml-form-embed"
+          data-account="1615598:y6c1b2g4k1"
+          data-form="5738399:u0w8s9">
+        </div>
+      </Grid>
+      
       <a className={badge} href="https://www.inclusivetherapists.com/new-york/new-york/mikella-millen" title="Find me on Inclusive Therapists" target="_blank" rel="noreferrer"><img src="https://www.inclusivetherapists.com/images/badges/12.png" border="0" /></a>
     </Grid>
   )
