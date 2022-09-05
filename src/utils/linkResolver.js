@@ -3,7 +3,6 @@ exports.linkResolver = (doc) => {
   if (doc.type === 'page') {
     return `/${doc.uid}`
   }
-
   // Backup for all other types
   return '/'
 }

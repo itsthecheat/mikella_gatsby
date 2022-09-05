@@ -1,19 +1,11 @@
 import * as React from 'react'
-import { linkResolver } from './src/utils/linkResolver'
-import { PrismicPreviewProvider, componentResolverFromMap, } from 'gatsby-plugin-prismic-previews'
+import { PrismicPreviewProvider} from 'gatsby-plugin-prismic-previews'
+import { repositoryConfigs } from './src/utils/prismicPreviews'
+
 
 export const wrapRootElement = ({ element }) => (
   <PrismicPreviewProvider
-    repositoryConfigs={[
-      {
-        repositoryName: process.env.PRISMIC_REPO,
-        linkResolver,
-        componentResolver: componentResolverFromMap({
-          page: PageTemplate,
-        }),
-      },
-    ]}
-  >
+    repositoryConfigs={repositoryConfigs}>
     {element}
   </PrismicPreviewProvider>
 )
