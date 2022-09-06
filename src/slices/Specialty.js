@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     padding: '10px',
     margin: '15px',
     '@media all and (min-width: 900px)': {
-      height: '400px',
+      height: '575px',
     },
     '@media all and (max-width: 480px)': {
       fontSize: '.85rem',

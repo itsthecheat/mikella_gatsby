@@ -1,18 +1,19 @@
 {
   "Main" : {
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "label" : "uid",
-        "placeholder" : "slug (ex. /page-name/)"
-      }
-    },
-    "page_title" : {
+    "title_splash" : {
       "type" : "StructuredText",
       "config" : {
         "single" : "heading1",
-        "label" : "Page Title",
-        "placeholder" : "Title of page"
+        "label" : "title splash",
+        "placeholder" : "Title for Splash Page"
+      }
+    },
+    "background_splash" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "background splash"
       }
     },
     "body" : {
@@ -20,310 +21,49 @@
       "fieldset" : "Slice zone",
       "config" : {
         "labels" : {
-          "full_width_image" : [ ],
-          "title" : [ ],
-          "text" : [ ],
-          "image" : [ ],
-          "section" : [ ],
-          "specializations" : [ ],
-          "text_section" : [ ],
-          "embed" : [ ]
+          "page_link" : [ ],
+          "hero_text" : [ ]
         },
         "choices" : {
-          "full_width_image" : {
+          "page_link" : {
             "type" : "Slice",
-            "fieldset" : "Full Width Image",
-            "description" : "Image across full width of page",
-            "icon" : "broken_image",
+            "fieldset" : "page link",
+            "description" : "link",
+            "icon" : "link",
             "display" : "list",
             "non-repeat" : {
-              "full_width_image" : {
-                "type" : "Image",
+              "link_name" : {
+                "type" : "StructuredText",
                 "config" : {
-                  "constraint" : { },
-                  "thumbnails" : [ ],
-                  "label" : "Full Width Image"
+                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label" : "link name",
+                  "placeholder" : "Name of link that appears on site"
+                }
+              },
+              "page_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "page link",
+                  "placeholder" : "link",
+                  "select" : null
                 }
               }
             },
             "repeat" : { }
           },
-          "text" : {
+          "hero_text" : {
             "type" : "Slice",
-            "fieldset" : "Text Section",
-            "description" : "Text only section with title and content",
-            "icon" : "text_fields",
+            "fieldset" : "hero text",
+            "description" : "large text on splash page",
+            "icon" : "format_color_text",
             "display" : "list",
             "non-repeat" : {
-              "section_id" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "section_id",
-                  "placeholder" : "Name for section, ie: Art Therapy, Contact, etc"
-                }
-              },
-              "section_label" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "section_label",
-                  "placeholder" : "Section name to appear as link in navbar"
-                }
-              },
-              "title" : {
+              "hero_text" : {
                 "type" : "StructuredText",
                 "config" : {
-                  "single" : "heading2",
-                  "label" : "Title",
-                  "placeholder" : "Section title"
-                }
-              }
-            },
-            "repeat" : {
-              "columns" : {
-                "type" : "Select",
-                "config" : {
-                  "options" : [ "1-Column", "2-Column" ],
-                  "default_value" : "1-Column",
-                  "label" : "Columns",
-                  "placeholder" : "1 or 2 column text block"
-                }
-              },
-              "text" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                  "label" : "text",
-                  "placeholder" : "Section content"
-                }
-              }
-            }
-          },
-          "image" : {
-            "type" : "Slice",
-            "fieldset" : "Image",
-            "description" : "Images for sections",
-            "icon" : "image",
-            "display" : "list",
-            "non-repeat" : {
-              "image" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : { },
-                  "thumbnails" : [ ],
-                  "label" : "image"
-                }
-              }
-            },
-            "repeat" : { }
-          },
-          "section" : {
-            "type" : "Slice",
-            "fieldset" : "Section",
-            "description" : "Content by section",
-            "icon" : "art_track",
-            "display" : "list",
-            "non-repeat" : {
-              "section_id" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "section_id",
-                  "placeholder" : "Name of section, ie: Art Therapy, Contact, About etc"
-                }
-              },
-              "section_label" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "section_label",
-                  "placeholder" : "Section label to appear as link in navbar"
-                }
-              },
-              "title" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading2",
-                  "label" : "Title",
-                  "placeholder" : "Content title"
-                }
-              }
-            },
-            "repeat" : {
-              "image" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : { },
-                  "thumbnails" : [ ],
-                  "label" : "image"
-                }
-              },
-              "image_position" : {
-                "type" : "Select",
-                "config" : {
-                  "options" : [ "Left", "Right" ],
-                  "label" : "Image Position",
-                  "placeholder" : "Image Position"
-                }
-              },
-              "content" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "label" : "Content"
-                }
-              }
-            }
-          },
-          "quote" : {
-            "type" : "Slice",
-            "fieldset" : "Quote",
-            "description" : "A short quote with author's portrait",
-            "icon" : "add_alert",
-            "non-repeat" : {
-              "quote" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "em",
-                  "label" : "Quote",
-                  "placeholder" : "Your quote"
-                }
-              },
-              "name_of_the_author" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph",
-                  "label" : "Name of the author",
-                  "placeholder" : "John Doe"
-                }
-              }
-            },
-            "repeat" : { }
-          },
-          "specializations" : {
-            "type" : "Slice",
-            "fieldset" : "Specialty",
-            "description" : "Card gallery descriptions",
-            "icon" : "add_circle_outline",
-            "display" : "list",
-            "non-repeat" : {
-              "section_id" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "section_id",
-                  "placeholder" : "Description of section ie, art_therapy, contact, etc."
-                }
-              },
-              "section_label" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "section_label",
-                  "placeholder" : "Section label to appear as link in navbar"
-                }
-              },
-              "specialty_title" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading2",
-                  "label" : "specialty title",
-                  "placeholder" : "section title"
-                }
-              }
-            },
-            "repeat" : {
-              "specialty_image" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : { },
-                  "thumbnails" : [ ],
-                  "label" : "specialty image"
-                }
-              },
-              "description_title" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading3",
-                  "label" : "description title",
-                  "placeholder" : "title"
-                }
-              },
-              "specialty_description" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "label" : "specialty description",
-                  "placeholder" : "description of specialty"
-                }
-              }
-            }
-          },
-          "text_section" : {
-            "type" : "Slice",
-            "fieldset" : "Contact Section",
-            "description" : "Text only section with title and content",
-            "icon" : "text_fields",
-            "display" : "list",
-            "non-repeat" : {
-              "section_id" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "section_id",
-                  "placeholder" : "Name for section, ie: Art Therapy, Contact, etc"
-                }
-              },
-              "section_label" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "section_label",
-                  "placeholder" : "Section label to appear as link in navbar"
-                }
-              },
-              "title" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading2",
-                  "label" : "Title",
-                  "placeholder" : "Section title"
-                }
-              }
-            },
-            "repeat" : {
-              "columns" : {
-                "type" : "Select",
-                "config" : {
-                  "options" : [ "1-Column", "2-Column" ],
-                  "default_value" : "1-Column",
-                  "label" : "Columns",
-                  "placeholder" : "1 or 2 column text block"
-                }
-              },
-              "text" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                  "label" : "text",
-                  "placeholder" : "Section content"
-                }
-              }
-            }
-          },
-          "embed" : {
-            "type" : "Slice",
-            "fieldset" : "Embed",
-            "description" : "Embed calendar, events, etc",
-            "icon" : "perm_contact_calendar",
-            "display" : "list",
-            "non-repeat" : {
-              "title" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading2",
-                  "label" : "Title",
-                  "placeholder" : "Title or header"
-                }
-              },
-              "embed" : {
-                "type" : "Embed",
-                "config" : {
-                  "label" : "embed",
-                  "placeholder" : "Enter URL to embed"
+                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label" : "hero text",
+                  "placeholder" : "text to appear on main splash page"
                 }
               }
             },
