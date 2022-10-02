@@ -22,13 +22,13 @@ const Splash = ({ data }) => {
     </Container>
   )
 }
-export default withPrismicPreview(Splash, [
-  {
-    repositioryName: 'mikellamillen',
-    linkResolver,
-  },
-])
-
+export default withPrismicPreview(Splash)
+// , [
+//   {
+//     repositioryName: 'mikellamillen',
+//     linkResolver,
+//   },
+// ]
 export const query = graphql`
   {
     allPrismicSplash {

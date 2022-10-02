@@ -7,6 +7,9 @@ import 'typeface-fira-sans'
 import * as React from 'react'
 import { PrismicPreviewProvider} from 'gatsby-plugin-prismic-previews'
 import { repositoryConfigs } from './src/utils/prismicPreviews'
+// import { PrismicProvider } from '@prismicio/react'
+// import { linkResolver } from './src/utils/linkResolver'
+
 
 export const wrapRootElement = ({ element }) => (
   <PrismicPreviewProvider repositoryConfigs={repositoryConfigs}>
