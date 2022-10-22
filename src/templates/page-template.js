@@ -59,7 +59,7 @@ const Page = ({ data }) => {
       <div className={pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
       <Container id="container">
 
-        {data.prismicPage.uid === 'events'
+        {/* {data.prismicPage.uid === 'events'
           ? (
 
             <div id="square" className={squareContainer}>
@@ -67,7 +67,7 @@ const Page = ({ data }) => {
             </div>
 
           )
-          : null}
+          : null} */}
 
         <SliceZone allSlices={page.body} />
         <Fab className={classes.fab} size="small" aria-label="add">

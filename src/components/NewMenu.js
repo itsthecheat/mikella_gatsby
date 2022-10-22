@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { PropTypes } from 'prop-types'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql, Link} from 'gatsby'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { animateScroll as scroll } from 'react-scroll'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import logo from '../images/mikella_logo.svg'
 import { logoSize, brand, navigation, heroImage, navCustom } from './NewMenu.module.css'
+import './NewMenu.module.css'
+
 
 const NewMenu = () => {
 
@@ -78,7 +80,6 @@ const NewMenu = () => {
       }
     }
   `)
-
   const pages = data.allPrismicPage.nodes
   const { site, allPrismicPage } = data
   const { siteMetadata } = site
@@ -105,26 +106,27 @@ const NewMenu = () => {
           <GiHamburgerMenu />
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-          <Nav className={navigation}>
+          <Nav id={navigation}>
             
                 {pages.map((el) => (
-                  
-                    <NavDropdown title={el.data.page_title.text}>                          
+                  el.data.page_title.text === "Groups and Trainings" || el.data.page_title.text === "About Mikella" ? null :
+                    <NavDropdown
+                      title={el.data.page_title.text}>                          
                         {el.data.body.map(type =>
                           type.slice_type === 'section' || type.slice_type === 'text' ?
-                            <NavDropdown.Item eventKey={type.id}  >
-                             {console.log(type)}
-                              <Nav.Link>                        
-                              <Link to={`${el.url}/#${type.primary.section_id}`}>
+                            <NavDropdown.Item
+                              eventKey={type.id}
+                            >                                                         
+                              <Link
+                                to={`${el.url}/#${type.primary.section_id}`}
+                               >
                                 {type.primary.section_label}
-                                </Link>
-                              </Nav.Link>
-                              
+                                </Link>                                 
                             </NavDropdown.Item> : null)}    
                     </NavDropdown>               
                  
                 ))}            
-            
+            <Nav.Link><Link to='/about-mikella'>About</Link> </Nav.Link>
             {/* {link_labels.map((link) => (
               <Nav.Link>
                 <Link
