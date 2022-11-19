@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 import Menu from './Menu'
+import NewMenu from './NewMenu'
+
 import Footer from './Footer'
 import { mainContainer } from './Layout.module.css'
 // eslint-disable-next-line import/order
@@ -9,7 +11,7 @@ import { mainContainer } from './Layout.module.css'
 const Layout = ({ children, data }) => (
   <>
     <Grid fluid style={{ padding: 0 }}>
-      <Menu data={data} />
+      <NewMenu data={data} />
       <div className={mainContainer}>
         {children}
       </div>

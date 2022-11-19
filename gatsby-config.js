@@ -37,8 +37,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: `${process.env.PRISMIC_REPO_NAME}`,
-        // releaseID: `${process.env.PRISMIC_RELEASE_ID}`,
+        repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
         linkResolver: require('./src/utils/linkResolver').linkResolver,
         // linkResolver: (doc) => `/${doc.uid}`,
         schemas: {
@@ -47,14 +46,15 @@ module.exports = {
           navigation: {},
         },
         accessToken: `${process.env.PRISMIC_API_KEY}`,
+        customTypesApiToken: `${process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN}`,
       },
     },
     {
       resolve: 'gatsby-plugin-prismic-previews',
       options: {
-        repositoryName: `${process.env.PRISMIC_REPO_NAME}`,
+        repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
         accessToken: `${process.env.PRISMIC_API_KEY}`,
-        toolbar: 'new',
+        // toolbar: 'new',
       },
     },
   ],

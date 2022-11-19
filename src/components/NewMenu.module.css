@@ -1,0 +1,36 @@
+.heroImage {
+  height: 400px;
+  position: relative;
+}
+.navCustom {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.logoSize {
+  width: 6rem;
+  z-index: 1;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+a.dropdown-item {
+  padding: 25px;
+}
+.brand {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+}
+#navigation {
+  font-family: 'Assistant', serif;
+}
+@media all and (max-width: 480px) {
+  .brand {
+    font-size: 1.2rem;
+  }
+
+  .logoSize {
+    width: 4rem;
+  }
+}

@@ -1,12 +1,15 @@
 import React from 'react'
-// import styles from './Image.module.css'
-import Col from 'react-bootstrap/Col'
+import * as styles from './Image.module.css'
+import { Row, Col, Container } from 'react-bootstrap'
 
 const Image = ({ data }) => (
 
-  <Col lg={4} md={4} sm={12}>
-    <img alt={data.primary.image.alt} src={data.primary.image.url} />
+  <Container fluid className={styles.imageWrapper}>
+    <Col lg={4} md={4} sm={12}>
+      <img className={styles.image}  alt={data.primary.image.alt} src={data.primary.image.url} />
   </Col>
+ </Container>
+  
 )
 
 export default Image

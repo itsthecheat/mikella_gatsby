@@ -3,7 +3,6 @@ a {
   font-family: 'DM Serif Display', serif;
 }
 a.active {
-  color: black;
   text-decoration: none;
 }
 button.navbar-toggler.navbar-light {
@@ -25,4 +24,16 @@ button.navbar-toggler:focus {
 }
 div.navbar-nav {
   padding-left: 10px;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: lightgray;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: black;
+}
+a:hover {
+  color:black;
 }

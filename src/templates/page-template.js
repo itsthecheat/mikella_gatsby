@@ -7,7 +7,6 @@ import Container from 'react-bootstrap/Container'
 import Fab from '@material-ui/core/Fab'
 import UpIcon from '@material-ui/icons/KeyboardArrowUp'
 import { makeStyles } from '@material-ui/core/styles'
-import { linkResolver } from '../utils/linkResolver'
 import {
   Layout,
   Contact,
@@ -43,10 +42,10 @@ const Page = ({ data }) => {
     document.body.appendChild(scriptMailerLite)
     script.src = 'https://embed.acuityscheduling.com/js/embed.js'
     script.addEventListener('load', { loaded: true })
-    if (data.prismicPage.uid === 'events') {
-      return document.getElementById('square').appendChild(script)
-    }
-    return null
+    // if (data.prismicPage.uid === 'events') {
+    //   return document.getElementById('square').appendChild(script)
+    // }
+    // return null
   }, [])
 
   const classes = useStyles()
@@ -60,7 +59,7 @@ const Page = ({ data }) => {
       <div className={pageTitle} dangerouslySetInnerHTML={{ __html: page.page_title.html }} />
       <Container id="container">
 
-        {data.prismicPage.uid === 'events'
+        {/* {data.prismicPage.uid === 'events'
           ? (
 
             <div id="square" className={squareContainer}>
@@ -68,7 +67,7 @@ const Page = ({ data }) => {
             </div>
 
           )
-          : null}
+          : null} */}
 
         <SliceZone allSlices={page.body} />
         <Fab className={classes.fab} size="small" aria-label="add">
@@ -80,13 +79,13 @@ const Page = ({ data }) => {
 
   )
 }
-export default withPrismicPreview(Page, [
-  {
-    repositoryName: 'mikellamillen',
-    linkResolver,
-  },
-])
-
+export default withPrismicPreview(Page)
+// , [
+//   {
+//     repositoryName: 'mikellamillen',
+//     linkResolver,
+//   },
+// ]
 export const query = graphql`
 query pageQuery($id: String) {
   prismicPage(id: {eq: $id}) {
@@ -96,6 +95,16 @@ query pageQuery($id: String) {
     id
     data {
       body {
+        ... on PrismicPageDataBodyQuote {
+            id
+            slice_type
+            primary {
+              quote {
+                text
+                html
+              }
+            }
+          }
         ... on PrismicPageDataBodyText {
           id
           slice_type
