@@ -4,5 +4,20 @@ hr {
   color: black !important;
   background-color: black !important;
   opacity: .75 !important;
-  max-width: 500px;
+  max-width: 100%;
+}
+.quote {
+  display: flex;
+  justify-content: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
+}
+.display {
+display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.icons {
+margin: 7px;
+color: lightgrey;
 }
