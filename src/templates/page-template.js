@@ -95,6 +95,16 @@ query pageQuery($id: String) {
     id
     data {
       body {
+        ... on PrismicPageDataBodyQuote {
+            id
+            slice_type
+            primary {
+              quote {
+                text
+                html
+              }
+            }
+          }
         ... on PrismicPageDataBodyText {
           id
           slice_type

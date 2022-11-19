@@ -1,0 +1,8 @@
+hr { 
+  border: none;
+  height: 2px !important;
+  color: black !important;
+  background-color: black !important;
+  opacity: .75 !important;
+  max-width: 500px;
+}

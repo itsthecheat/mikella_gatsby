@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  TextSection, Image, Section, SplashButton, HeroText, Specialty,
+  TextSection, Image, Section, SplashButton, HeroText, Specialty, Quote,
 } from '../slices'
 import * as styles from './SliceZone.module.css'
 
@@ -20,6 +20,8 @@ const SliceZone = (props) => {
         return <SplashButton key={s.id} data={s} />
       case 'hero_text':
         return <HeroText key={s.id} data={s} />
+      case 'quote':
+        return <Quote key={s.id} data={s} />
       default:
         return null
     }

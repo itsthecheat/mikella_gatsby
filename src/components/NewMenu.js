@@ -80,6 +80,7 @@ const NewMenu = () => {
       }
     }
   `)
+  console.log(data)
   const pages = data.allPrismicPage.nodes
   const { site, allPrismicPage } = data
   const { siteMetadata } = site
@@ -92,7 +93,8 @@ const NewMenu = () => {
     scroll.scrollToTop()
   }
 
-  const image = allPrismicPage.nodes[0].data.body[0].primary.full_width_image
+  const image = allPrismicPage.nodes[1].data.body[0].primary.full_width_image
+  console.log(image)
 
   return (
     <>
@@ -117,7 +119,7 @@ const NewMenu = () => {
                             <NavDropdown.Item
                               eventKey={type.id}
                             >                                                         
-                              <Link
+                              <Link                         
                                 to={`${el.url}/#${type.primary.section_id}`}
                                >
                                 {type.primary.section_label}
