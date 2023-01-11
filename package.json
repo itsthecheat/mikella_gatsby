@@ -34,7 +34,7 @@
     "gatsby-plugin-styled-components": "^5.13.0",
     "gatsby-source-filesystem": "^4.13.0",
     "gatsby-source-prismic": "^5.2.6",
-    "gatsby-transformer-remark": "^5.13.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^4.13.0",
     "gatsby-transformer-yaml": "^4.13.0",
     "graphql": "^15.8.0",
