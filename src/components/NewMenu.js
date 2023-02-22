@@ -5,8 +5,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { animateScroll as scroll } from 'react-scroll'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import logo from '../images/mikella_logo.svg'
-import { logoSize, brand, navigation, heroImage, navCustom } from './NewMenu.module.css'
-import './NewMenu.module.css'
+import { logoSize, brand, navigation, heroImage, navCustom, blog } from './NewMenu.module.css'
 
 
 const NewMenu = () => {
@@ -129,6 +128,7 @@ const NewMenu = () => {
                  
                 ))}            
             <Nav.Link><Link to='/about-mikella'>About</Link> </Nav.Link>
+            <a className={blog} role='button' href='https://blog.mikellamillen.com'>Blog</a>
             {/* {link_labels.map((link) => (
               <Nav.Link>
                 <Link

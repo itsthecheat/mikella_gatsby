@@ -2,6 +2,9 @@
   height: 400px;
   position: relative;
 }
+.blog {
+  padding: .5rem;
+}
 .navCustom {
   padding-top: 0;
   padding-bottom: 0;
