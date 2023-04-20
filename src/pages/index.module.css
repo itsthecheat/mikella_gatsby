@@ -1,39 +1,43 @@
-.backgroundSplash {
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
-.overlay {
-  background-color: rgba(0, 0, 0, .6);
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-.splashTitle h1 {
-  margin: 25px;
-  font-size: 3rem;
+.pageTitle {
+  text-align: center;
   font-family: 'DM Serif Display', serif;
-  font-weight: 100;
-  color: white;
-  z-index: 100;
+  transform:translate(-50%, -50%);
   position: absolute;
-  padding: 10px;
-  border: 2px solid white;
+  top: 250px;
+  left: 50%;
+  z-index: 1;
+  color: white;
 }
-
+.header {
+  padding: 15px;
+  text-align: center;
+  font-family: 'DM Serif Display', serif;
+}
+.squareContainer {
+  margin: 50px;
+  padding: 2rem;
+  border: solid  grey 1px;
+  border-radius: 20px;
+}
+.pageTitle h1 {
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 3rem;
+  min-width: 300px;
+}
+.icon {
+  padding: 10px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 100;
+}
 @media all and (max-width: 480px) {
-.splashTitle h1 {
-    font-size: 1.75rem;
-    margin: 15px;
-
+ .pageTitle h1 {
+    font-size: 2rem;
   }
+  .squareContainer {
+  border: none;
+  margin: 20px;
+}
 }

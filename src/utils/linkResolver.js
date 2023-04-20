@@ -3,6 +3,9 @@ exports.linkResolver = (doc) => {
   if (doc.type === 'page') {
     return `/${doc.uid}`
   }
+  if (doc.type === 'home') {
+    return '/'
+  }
   // Backup for all other types
   return '/'
 }

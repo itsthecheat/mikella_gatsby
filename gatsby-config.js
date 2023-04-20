@@ -44,6 +44,7 @@ module.exports = {
         schemas: {
           page: require('./src/schemas/page.json'),
           splash: require('./src/schemas/splash.json'),
+          home: require('./src/schemas/home.json'),
           navigation: {},
         },
         accessToken: `${process.env.PRISMIC_API_KEY}`,
