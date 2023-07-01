@@ -126,9 +126,11 @@ const NewMenu = () => {
                             </NavDropdown.Item> : null)}    
                     </NavDropdown>               
                  
-                ))}            
-            <Nav.Link><Link to='/about-mikella'>About</Link> </Nav.Link>
+                ))}
             <a className={blog} role='button' href='https://blog.mikellamillen.com'>Blog</a>
+            <a className={blog} role='button' href='https://blog.mikellamillen.com/learning-library/'>Downloads</a>            
+            <Nav.Link><Link to='/about-mikella'>About</Link> </Nav.Link>
+            
             {/* {link_labels.map((link) => (
               <Nav.Link>
                 <Link

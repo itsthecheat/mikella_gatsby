@@ -2,6 +2,7 @@
 import React from 'react'
 import { Grid, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import SplashButton from './SplashButton'
 import * as styles from './Specialty.module.css'
 
 const useStyles = makeStyles({
@@ -11,7 +12,7 @@ const useStyles = makeStyles({
     padding: '10px',
     margin: '15px',
     '@media all and (min-width: 900px)': {
-      height: '575px',
+      height: '300px',
     },
     '@media all and (max-width: 480px)': {
       fontSize: '.85rem',
@@ -22,10 +23,11 @@ const useStyles = makeStyles({
 const Specialty = ({ data }) => {
   const content = data.items
   const classes = useStyles()
-
+ 
   return (
     <>
       <div id={data.slice_type} className={styles.title} dangerouslySetInnerHTML={{ __html: data.primary.specialty_title.html }} />
+      
 
       <Grid container className={styles.cardContainer}>
         {content.map((specialty) => (
@@ -33,6 +35,7 @@ const Specialty = ({ data }) => {
             <Paper className={classes.item}>
               <div className={styles.title} dangerouslySetInnerHTML={{ __html: specialty.description_title.html }} />
               {specialty.specialty_description.text}
+              {specialty.description_title.html === "<h3>Individual Sessions</h3>" ? <SplashButton /> : null}
             </Paper>
           </Grid>
 

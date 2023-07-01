@@ -7,7 +7,7 @@
     text-align: center;
     font-family: 'DM Serif Display', serif;
 }
-@media all and (max-width: 480px) {
+/* @media all and (max-width: 480px) {
  .item {
     font-size: .85rem;
   }
@@ -16,4 +16,4 @@
   .item {
     height: 500px;
   }
-}
+} */
