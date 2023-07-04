@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     },
     '@media all and (max-width: 480px)': {
       fontSize: '.85rem',
+      width: '300px',
     },
   },
 })

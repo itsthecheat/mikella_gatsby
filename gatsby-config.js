@@ -48,6 +48,7 @@ module.exports = {
           navigation: {},
         },
         accessToken: `${process.env.PRISMIC_API_KEY}`,
+        customTypesApiToken: `${process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN}`,
       },
     },
     {
